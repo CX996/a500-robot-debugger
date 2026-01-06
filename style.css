@@ -154,7 +154,7 @@ body {
 /* 侧边栏滚动 - 简化样式确保兼容性 */
 .sidebar-left, .sidebar-right {
     overflow-y: scroll;
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 200px);
     padding-right: 0.5rem;
     min-height: 0;
 }
