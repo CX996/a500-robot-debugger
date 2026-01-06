@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-500机器人调试器</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo">A-500 Robot Debugger</h1>
+                <div class="date">2026.01.06</div>
+            </div>
+            
+            <div class="header-center">
+                <div class="status-item">
+                    <span class="status-label">ROBOT STATUS</span>
+                    <span class="status-value running">RUNNING</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">LATENCY</span>
+                    <span class="status-value">12ms</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">CPU LOAD</span>
+                    <span class="status-value">24.5%</span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-tab="task">
+                        <i class="fas fa-tasks"></i>
+                        <span>任务管理</span>
+                    </button>
+                    <button class="nav-btn" data-tab="motion">
+                        <i class="fas fa-robot"></i>
+                        <span>运动控制</span>
+                    </button>
+                    <button class="nav-btn" data-tab="process">
+                        <i class="fas fa-cog"></i>
+                        <span>工艺设置</span>
+                    </button>
+                    <button class="nav-btn" data-tab="diagnosis">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>系统诊断</span>
+                    </button>
+                </nav>
+                
+                <div class="user-profile">
+                    <span class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </span>
+                    <span class="user-name">Admin Zhang</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- 主要内容区域 -->
+        <div class="tab-content">
+            <!-- 任务管理标签页 -->
+            <main class="main-content tab-pane active" id="task">
+                <!-- 左侧边栏 -->
+                <aside class="sidebar-left">
+                    <div class="section">
+                        <h2 class="section-title">焊接任务管理</h2>
+                        <div class="weld-list">
+                            <div class="weld-item">
+                                <div class="weld-header">
+                                    <div class="weld-id">ID: WM-2026-001</div>
+                                    <div class="weld-type">直焊缝-倾斜</div>
+                                    <div class="weld-status active">进行中</div>
+                                </div>
+                            </div>
+                            <div class="weld-item">
+                                <div class="weld-header">
+                                    <div class="weld-id">ID: WM-2026-002</div>
+                                    <div class="weld-type">V型坡口焊缝</div>
+                                    <div class="weld-status pending">待处理</div>
+                                </div>
+                            </div>
+                            <div class="weld-item">
+                                <div class="weld-header">
+                                    <div class="weld-id">ID: WM-2026-003</div>
+                                    <div class="weld-type">搭接焊缝</div>
+                                    <div class="weld-status completed">已完成</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">焊缝编辑工具</h2>
+                        <div class="tool-grid">
+                            <button class="tool-btn">
+                                <i class="fas fa-align-left"></i>
+                                <span>校正路径</span>
+                            </button>
+                            <button class="tool-btn">
+                                <i class="fas fa-crosshairs"></i>
+                                <span>微调起点</span>
+                            </button>
+                        </div>
+                        
+                        <div class="control-buttons">
+                            <button class="control-btn primary">
+                                <i class="fas fa-search"></i>
+                                一键识别 + 扫描
+                            </button>
+                            <div class="control-row">
+                                <button class="control-btn secondary">
+                                    <i class="fas fa-play"></i>
+                                    开始执行
+                                </button>
+                                <button class="control-btn secondary">
+                                    <i class="fas fa-undo"></i>
+                                    智能续焊
+                                </button>
+                            </div>
+                            <button class="control-btn danger">
+                                <i class="fas fa-stop"></i>
+                                强制终止任务
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- 中央可视化区域 -->
+                <section class="visualization">
+                    <div class="visualization-header">
+                        <div class="camera-status">
+                            <i class="fas fa-video"></i>
+                            <span>Camera Online: Zivid 2 (2.0MP)</span>
+                        </div>
+                        <div class="coordinate-status">
+                            <i class="fas fa-check-circle green"></i>
+                            <span>Correct World WCS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="visualization-main">
+                        <img src="welding-scene.svg" alt="焊接场景" class="welding-image">
+                        <div class="mode-toggle">
+                            <button class="mode-btn active">自动模式</button>
+                            <button class="mode-btn">手动调试 (JOG)</button>
+                        </div>
+                        <div class="auto-scanning">
+                            <span>Auto-scanning enabled</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-info">
+                        <span>Project: CA500-CON-14rtJ-Orocess.awm</span>
+                        <span>运行时间: 04h:23m:15s</span>
+                    </div>
+                </section>
+                
+                <!-- 右侧边栏 -->
+                <aside class="sidebar-right">
+                    <div class="section">
+                        <h2 class="section-title">实时状态监视</h2>
+                        <div class="tcp-coordinates">
+                            <div class="tcp-item">
+                                <span class="tcp-label">TCP</span>
+                                <div class="tcp-values">
+                                    <span class="tcp-value">
+                                        <span class="tcp-axis">TCF1</span>
+                                        <span class="tcp-num">452.12</span>
+                                    </span>
+                                    <span class="tcp-value">
+                                        <span class="tcp-axis">TCF2</span>
+                                        <span class="tcp-num">-108.45</span>
+                                    </span>
+                                    <span class="tcp-value">
+                                        <span class="tcp-axis">TCF3</span>
+                                        <span class="tcp-num">210.88</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="status-gauge">
+                            <div class="gauge-container">
+                                <svg class="gauge" width="120" height="120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="50" stroke="#333" stroke-width="10" fill="transparent"></circle>
+                                    <circle class="gauge-fill" cx="60" cy="60" r="50" stroke="#00aaff" stroke-width="10" fill="transparent" stroke-dasharray="314" stroke-dashoffset="86"></circle>
+                                </svg>
+                                <div class="gauge-value">72.6%</div>
+                                <div class="gauge-label">系统速度</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">焊接工艺参数</h2>
+                        <div class="process-params">
+                            <div class="param-item">
+                                <span class="param-label">电流 (Current)</span>
+                                <span class="param-value">215 A</span>
+                            </div>
+                            <div class="param-item">
+                                <span class="param-label">电压 (Voltage)</span>
+                                <span class="param-value">24.2 V</span>
+                            </div>
+                            <div class="param-item">
+                                <span class="param-label">送丝速度</span>
+                                <span class="param-value">6.5 m/min</span>
+                            </div>
+                        </div>
+                        <button class="param-btn">
+                            <i class="fas fa-sliders-h"></i>
+                            专家参数设置
+                        </button>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">活动报警 (1)</h2>
+                        <div class="alert-item">
+                            <div class="alert-header">
+                                <span class="alert-type">E-204: 气路供应异常</span>
+                            </div>
+                            <div class="alert-content">
+                                <p>原因: 检测到保护气体流量低于5L/min。</p>
+                                <p>可能原因: 气压不足或气路漏气。</p>
+                            </div>
+                            <button class="alert-btn">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                查看详细故障信息
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+            
+            <!-- 运动控制标签页 -->
+            <main class="main-content tab-pane" id="motion">
+                <!-- 左侧边栏 -->
+                <aside class="sidebar-left">
+                    <div class="section">
+                        <h2 class="section-title">运动控制</h2>
+                        <div class="control-panel">
+                            <div class="control-group">
+                                <label class="control-label">运动模式</label>
+                                <div class="control-buttons">
+                                    <button class="control-btn secondary">关节坐标</button>
+                                    <button class="control-btn secondary">世界坐标系</button>
+                                    <button class="control-btn secondary">工具坐标系</button>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label">点动控制 (Jogging)</label>
+                                <div class="jog-controls">
+                                    <div class="jog-axis">
+                                        <label>J1</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="jog-axis">
+                                        <label>J2</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="jog-axis">
+                                        <label>J3</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="jog-axis">
+                                        <label>J4</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="jog-axis">
+                                        <label>J5</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="jog-axis">
+                                        <label>J6</label>
+                                        <div class="jog-buttons">
+                                            <button class="jog-btn up">+</button>
+                                            <button class="jog-btn down">-</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label">速度控制</label>
+                                <div class="speed-control">
+                                    <span class="speed-label">0%</span>
+                                    <input type="range" class="speed-slider" min="0" max="100" value="50">
+                                    <span class="speed-label">100%</span>
+                                </div>
+                                <div class="speed-value">当前速度: 50%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">运行模式</h2>
+                        <div class="mode-controls">
+                            <button class="mode-btn active">仅仿真</button>
+                            <button class="mode-btn">真机执行</button>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- 中央可视化区域 -->
+                <section class="visualization">
+                    <div class="visualization-header">
+                        <div class="simulation-status">
+                            <i class="fas fa-check-circle green"></i>
+                            <span>仿真环境已加载</span>
+                        </div>
+                        <div class="robot-status">
+                            <i class="fas fa-robot"></i>
+                            <span>机器人状态: 就绪</span>
+                        </div>
+                    </div>
+                    
+                    <div class="visualization-main">
+                        <img src="welding-scene.svg" alt="机器人仿真场景" class="welding-image">
+                        <div class="simulation-controls">
+                            <button class="control-btn primary">
+                                <i class="fas fa-play"></i>
+                                开始仿真
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-pause"></i>
+                                暂停
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-stop"></i>
+                                停止
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-sync"></i>
+                                重置
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 右侧边栏 -->
+                <aside class="sidebar-right">
+                    <div class="section">
+                        <h2 class="section-title">实时位姿</h2>
+                        <div class="pose-info">
+                            <div class="pose-group">
+                                <h3 class="pose-title">关节角度 (°)</h3>
+                                <div class="pose-values">
+                                    <div class="pose-item">
+                                        <span class="pose-label">J1</span>
+                                        <span class="pose-value">12.34</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">J2</span>
+                                        <span class="pose-value">-45.67</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">J3</span>
+                                        <span class="pose-value">78.90</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">J4</span>
+                                        <span class="pose-value">-12.34</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">J5</span>
+                                        <span class="pose-value">56.78</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">J6</span>
+                                        <span class="pose-value">-90.12</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pose-group">
+                                <h3 class="pose-title">TCP坐标 (mm)</h3>
+                                <div class="pose-values">
+                                    <div class="pose-item">
+                                        <span class="pose-label">X</span>
+                                        <span class="pose-value">123.45</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">Y</span>
+                                        <span class="pose-value">-67.89</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">Z</span>
+                                        <span class="pose-value">234.56</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">RX</span>
+                                        <span class="pose-value">12.34</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">RY</span>
+                                        <span class="pose-value">-5.67</span>
+                                    </div>
+                                    <div class="pose-item">
+                                        <span class="pose-label">RZ</span>
+                                        <span class="pose-value">89.01</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">安全监控</h2>
+                        <div class="safety-info">
+                            <div class="safety-item">
+                                <span class="safety-label">关节扭矩</span>
+                                <span class="safety-value">正常</span>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-label">温度监控</span>
+                                <span class="safety-value">正常</span>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-label">碰撞检测</span>
+                                <span class="safety-value">未检测到碰撞</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+            
+            <!-- 工艺设置标签页 -->
+            <main class="main-content tab-pane" id="process">
+                <!-- 左侧边栏 -->
+                <aside class="sidebar-left">
+                    <div class="section">
+                        <h2 class="section-title">工艺专家库</h2>
+                        <div class="process-library">
+                            <div class="library-group">
+                                <h3 class="library-title">材料类型</h3>
+                                <div class="library-items">
+                                    <button class="library-item active">碳钢</button>
+                                    <button class="library-item">不锈钢</button>
+                                    <button class="library-item">铝合金</button>
+                                    <button class="library-item">钛合金</button>
+                                </div>
+                            </div>
+                            
+                            <div class="library-group">
+                                <h3 class="library-title">板厚 (mm)</h3>
+                                <div class="library-items">
+                                    <button class="library-item">1-3</button>
+                                    <button class="library-item active">3-6</button>
+                                    <button class="library-item">6-10</button>
+                                    <button class="library-item">10-15</button>
+                                </div>
+                            </div>
+                            
+                            <div class="library-group">
+                                <h3 class="library-title">气体组合</h3>
+                                <div class="library-items">
+                                    <button class="library-item active">Ar + CO₂</button>
+                                    <button class="library-item">纯Ar</button>
+                                    <button class="library-item">Ar + He</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">焊机配置</h2>
+                        <div class="welder-config">
+                            <div class="config-item">
+                                <label class="config-label">焊机型号</label>
+                                <select class="config-select">
+                                    <option>Panasonic YD-500GR</option>
+                                    <option selected>Miller Dynasty 280 DX</option>
+                                    <option>Fronius TPS 400i</option>
+                                </select>
+                            </div>
+                            
+                            <div class="config-item">
+                                <label class="config-label">通讯协议</label>
+                                <select class="config-select">
+                                    <option selected>RS-485</option>
+                                    <option>Profinet</option>
+                                    <option>Ethernet/IP</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- 中央参数设置区域 -->
+                <section class="visualization">
+                    <div class="visualization-header">
+                        <div class="process-title">
+                            <h2>焊接工艺参数设置</h2>
+                        </div>
+                        <div class="process-actions">
+                            <button class="control-btn secondary">
+                                <i class="fas fa-save"></i>
+                                保存参数
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-download"></i>
+                                导出参数
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-upload"></i>
+                                导入参数
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="process-settings">
+                        <div class="settings-grid">
+                            <div class="setting-item">
+                                <label class="setting-label">焊接电流 (A)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="210" min="50" max="500">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">焊接电压 (V)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="24" min="10" max="50" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">送丝速度 (m/min)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="6.5" min="1" max="15" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">焊接速度 (mm/s)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="8" min="1" max="20">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">气体流量 (L/min)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="15" min="5" max="30">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">预送气时间 (s)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="0.5" min="0" max="5" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">滞后关气时间 (s)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="2" min="0" max="10" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <label class="setting-label">引弧电流 (A)</label>
+                                <div class="setting-control">
+                                    <input type="number" class="setting-input" value="180" min="50" max="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 右侧边栏 -->
+                <aside class="sidebar-right">
+                    <div class="section">
+                        <h2 class="section-title">参数预览</h2>
+                        <div class="parameter-preview">
+                            <div class="preview-item">
+                                <span class="preview-label">电流范围</span>
+                                <span class="preview-value">200-220 A</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="preview-label">电压范围</span>
+                                <span class="preview-value">23-25 V</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="preview-label">推荐速度</span>
+                                <span class="preview-value">7-9 mm/s</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="preview-label">预计熔深</span>
+                                <span class="preview-value">2.5-3 mm</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">历史工艺</h2>
+                        <div class="history-list">
+                            <div class="history-item">
+                                <div class="history-header">
+                                    <span class="history-name">工艺#001</span>
+                                    <span class="history-date">2026-01-05</span>
+                                </div>
+                                <div class="history-info">
+                                    <span>碳钢 5mm Ar+CO₂</span>
+                                </div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-header">
+                                    <span class="history-name">工艺#002</span>
+                                    <span class="history-date">2026-01-04</span>
+                                </div>
+                                <div class="history-info">
+                                    <span>不锈钢 3mm 纯Ar</span>
+                                </div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-header">
+                                    <span class="history-name">工艺#003</span>
+                                    <span class="history-date">2026-01-03</span>
+                                </div>
+                                <div class="history-info">
+                                    <span>铝合金 8mm Ar+He</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+            
+            <!-- 系统诊断标签页 -->
+            <main class="main-content tab-pane" id="diagnosis">
+                <!-- 左侧边栏 -->
+                <aside class="sidebar-left">
+                    <div class="section">
+                        <h2 class="section-title">系统诊断</h2>
+                        <div class="diagnosis-menu">
+                            <button class="diagnosis-item active">设备状态</button>
+                            <button class="diagnosis-item">网络诊断</button>
+                            <button class="diagnosis-item">I/O信号</button>
+                            <button class="diagnosis-item">日志查询</button>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">设备列表</h2>
+                        <div class="device-list">
+                            <div class="device-item">
+                                <div class="device-icon robot"></div>
+                                <div class="device-info">
+                                    <div class="device-name">A-500机器人</div>
+                                    <div class="device-status online">在线</div>
+                                </div>
+                            </div>
+                            <div class="device-item">
+                                <div class="device-icon camera"></div>
+                                <div class="device-info">
+                                    <div class="device-name">Zivid 2相机</div>
+                                    <div class="device-status online">在线</div>
+                                </div>
+                            </div>
+                            <div class="device-item">
+                                <div class="device-icon welder"></div>
+                                <div class="device-info">
+                                    <div class="device-name">Miller焊机</div>
+                                    <div class="device-status online">在线</div>
+                                </div>
+                            </div>
+                            <div class="device-item">
+                                <div class="device-icon controller"></div>
+                                <div class="device-info">
+                                    <div class="device-name">控制柜</div>
+                                    <div class="device-status online">在线</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- 中央诊断区域 -->
+                <section class="visualization">
+                    <div class="visualization-header">
+                        <div class="diagnosis-title">
+                            <h2>设备健康状态</h2>
+                        </div>
+                        <div class="diagnosis-actions">
+                            <button class="control-btn secondary">
+                                <i class="fas fa-sync"></i>
+                                刷新状态
+                            </button>
+                            <button class="control-btn secondary">
+                                <i class="fas fa-download"></i>
+                                导出报告
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="diagnosis-content">
+                        <div class="health-dashboard">
+                            <div class="health-card">
+                                <div class="health-icon cpu"></div>
+                                <div class="health-info">
+                                    <div class="health-title">CPU负载</div>
+                                    <div class="health-value">24.5%</div>
+                                    <div class="health-status normal">正常</div>
+                                </div>
+                            </div>
+                            
+                            <div class="health-card">
+                                <div class="health-icon memory"></div>
+                                <div class="health-info">
+                                    <div class="health-title">内存使用</div>
+                                    <div class="health-value">68.2%</div>
+                                    <div class="health-status normal">正常</div>
+                                </div>
+                            </div>
+                            
+                            <div class="health-card">
+                                <div class="health-icon temperature"></div>
+                                <div class="health-info">
+                                    <div class="health-title">温度</div>
+                                    <div class="health-value">42°C</div>
+                                    <div class="health-status normal">正常</div>
+                                </div>
+                            </div>
+                            
+                            <div class="health-card">
+                                <div class="health-icon network"></div>
+                                <div class="health-info">
+                                    <div class="health-title">网络延迟</div>
+                                    <div class="health-value">12ms</div>
+                                    <div class="health-status normal">正常</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diagnosis-charts">
+                            <div class="chart-container">
+                                <h3 class="chart-title">CPU负载趋势 (过去1小时)</h3>
+                                <div class="chart-placeholder">
+                                    <!-- 图表占位符 -->
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 右侧边栏 -->
+                <aside class="sidebar-right">
+                    <div class="section">
+                        <h2 class="section-title">报警历史</h2>
+                        <div class="alert-history">
+                            <div class="alert-item">
+                                <div class="alert-time">10:24:05</div>
+                                <div class="alert-type">E-204: 气路供应异常</div>
+                                <div class="alert-level warning">警告</div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-time">10:20:18</div>
+                                <div class="alert-type">W-102: 焊接参数偏差</div>
+                                <div class="alert-level info">信息</div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-time">10:15:32</div>
+                                <div class="alert-type">I-001: 相机校准完成</div>
+                                <div class="alert-level info">信息</div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-time">10:10:45</div>
+                                <div class="alert-type">S-301: 系统启动完成</div>
+                                <div class="alert-level info">信息</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">系统资源</h2>
+                        <div class="resource-info">
+                            <div class="resource-item">
+                                <span class="resource-label">存储使用</span>
+                                <div class="resource-bar">
+                                    <div class="resource-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="resource-value">45%</span>
+                            </div>
+                            <div class="resource-item">
+                                <span class="resource-label">网络流量</span>
+                                <div class="resource-bar">
+                                    <div class="resource-fill" style="width: 32%"></div>
+                                </div>
+                                <span class="resource-value">32%</span>
+                            </div>
+                            <div class="resource-item">
+                                <span class="resource-label">I/O使用率</span>
+                                <div class="resource-bar">
+                                    <div class="resource-fill" style="width: 18%"></div>
+                                </div>
+                                <span class="resource-value">18%</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+        </div>
+        
+        <!-- 底部日志区域 -->
+        <footer class="footer">
+            <div class="log-section">
+                <h2 class="section-title">SYSTEM PROCESS LOG</h2>
+                <div class="log-content">
+                    <div class="log-item">
+                        <span class="log-time">[10:24:10]</span>
+                        <span class="log-level info">INFO:</span>
+                        <span class="log-message">激光扫描初始化成功...</span>
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">[10:24:09]</span>
+                        <span class="log-level proc">PROC:</span>
+                        <span class="log-message">检测到焊缝 ID: WM-2026-001，长度: 450mm</span>
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">[10:24:12]</span>
+                        <span class="log-level info">INFO:</span>
+                        <span class="log-message">开始电弧引燃 (ARC-ON: 1.240V)</span>
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">[10:24:15]</span>
+                        <span class="log-level task">TASK:</span>
+                        <span class="log-message">并机控制系统，状态: 正常</span>
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">[10:24:20]</span>
+                        <span class="log-level info">INFO:</span>
+                        <span class="log-message">焊缝起始成功，电流: 210A，速度: 8mm/s</span>
+                    </div>
+                    <div class="log-item">
+                        <span class="log-time">[10:24:21]</span>
+                        <span class="log-level weld">WELD:</span>
+                        <span class="log-message">焊接系统稳定性: 98.4%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <div class="error-status">
+                    <i class="fas fa-times-circle red"></i>
+                    <span>Error</span>
+                </div>
+                <div class="connection-status">
+                    <i class="fas fa-plug"></i>
+                    <span>Connected to: 192.168.1.10</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

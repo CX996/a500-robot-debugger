@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="#0a0f1a"/>
+  
+  <!-- 网格线 -->
+  <g stroke="#1e2a42" stroke-opacity="0.3">
+    <!-- 垂直线 -->
+    <line x1="0" y1="0" x2="0" y2="800"/>
+    <line x1="100" y1="0" x2="100" y2="800"/>
+    <line x1="200" y1="0" x2="200" y2="800"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="400" y1="0" x2="400" y2="800"/>
+    <line x1="500" y1="0" x2="500" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="700" y1="0" x2="700" y2="800"/>
+    <line x1="800" y1="0" x2="800" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+    <line x1="1000" y1="0" x2="1000" y2="800"/>
+    <line x1="1100" y1="0" x2="1100" y2="800"/>
+    <line x1="1200" y1="0" x2="1200" y2="800"/>
+    
+    <!-- 水平线 -->
+    <line x1="0" y1="0" x2="1200" y2="0"/>
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="700" x2="1200" y2="700"/>
+    <line x1="0" y1="800" x2="1200" y2="800"/>
+  </g>
+  
+  <!-- 焊接工件 -->
+  <g transform="translate(400, 500)">
+    <!-- 红色底座 -->
+    <rect x="-50" y="50" width="200" height="20" fill="#330000" stroke="#ff4444" stroke-width="2"/>
+    
+    <!-- 绿色机械零件 -->
+    <rect x="0" y="0" width="100" height="70" fill="#224422" stroke="#44ff44" stroke-width="2"/>
+    
+    <!-- 黄色齿轮 -->
+    <circle cx="50" cy="35" r="30" fill="#444400" stroke="#ffff44" stroke-width="2"/>
+    <line x1="50" y1="5" x2="50" y2="65" stroke="#ffff44" stroke-width="2"/>
+    <line x1="20" y1="35" x2="80" y2="35" stroke="#ffff44" stroke-width="2"/>
+    <line x1="30" y1="15" x2="70" y2="55" stroke="#ffff44" stroke-width="2"/>
+    <line x1="30" y1="55" x2="70" y2="15" stroke="#ffff44" stroke-width="2"/>
+  </g>
+  
+  <!-- 机器人手臂 -->
+  <g>
+    <!-- 底座 -->
+    <rect x="100" y="600" width="150" height="50" fill="#333344" stroke="#6666ff" stroke-width="2"/>
+    
+    <!-- 大臂 -->
+    <rect x="150" y="400" width="30" height="200" fill="#333344" stroke="#6666ff" stroke-width="2"/>
+    
+    <!-- 小臂 -->
+    <rect x="130" y="300" width="70" height="30" fill="#333344" stroke="#6666ff" stroke-width="2"/>
+    
+    <!-- 手腕 -->
+    <rect x="180" y="250" width="50" height="50" fill="#333344" stroke="#6666ff" stroke-width="2"/>
+    
+    <!-- 焊枪 -->
+    <rect x="200" y="200" width="20" height="50" fill="#553333" stroke="#ff6666" stroke-width="2"/>
+  </g>
+  
+  <!-- 焊接火花效果 -->
+  <g transform="translate(500, 350)">
+    <!-- 主火花 -->
+    <circle cx="0" cy="0" r="20" fill="#ffff44" opacity="0.8"/>
+    <circle cx="0" cy="0" r="10" fill="#ff8844" opacity="0.9"/>
+    <circle cx="0" cy="0" r="5" fill="#ff0000" opacity="1"/>
+    
+    <!-- 火花飞溅 -->
+    <line x1="0" y1="0" x2="30" y2="-20" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="40" y2="-10" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="35" y2="10" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="25" y2="25" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="10" y2="35" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-15" y2="30" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-30" y2="15" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-35" y2="-5" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-25" y2="-25" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-10" y2="-30" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="5" y2="-35" stroke="#ffff44" stroke-width="2" opacity="0.7"/>
+  </g>
+  
+  <!-- 激光线 -->
+  <line x1="220" y1="200" x2="500" y2="350" stroke="#00ffff" stroke-width="3" opacity="0.8"/>
+  
+  <!-- 状态指示灯 -->
+  <g transform="translate(1000, 100)">
+    <!-- 绿色在线指示灯 -->
+    <circle cx="20" cy="20" r="15" fill="#003300" stroke="#00ff00" stroke-width="2"/>
+    <circle cx="20" cy="20" r="10" fill="#00ff00" opacity="0.8"/>
+    <text x="50" y="25" fill="#ffffff" font-size="16">Camera Online</text>
+    
+    <!-- 蓝色坐标指示灯 -->
+    <circle cx="20" cy="60" r="15" fill="#000033" stroke="#00ffff" stroke-width="2"/>
+    <circle cx="20" cy="60" r="10" fill="#00ffff" opacity="0.8"/>
+    <text x="50" y="65" fill="#ffffff" font-size="16">Correct WCS</text>
+  </g>
+  
+  <!-- 自动扫描指示器 -->
+  <g transform="translate(1000, 700)">
+    <rect x="0" y="0" width="150" height="50" fill="#113311" stroke="#44ff44" stroke-width="2" rx="10"/>
+    <text x="75" y="30" fill="#44ff44" font-size="16" text-anchor="middle" alignment-baseline="middle">Auto-scanning</text>
+    
+    <!-- 扫描动画 -->
+    <line x1="10" y1="25" x2="140" y2="25" stroke="#44ff44" stroke-width="2" opacity="0.8">
+      <animate attributeName="x1" from="10" to="140" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" from="0" to="1" to="0" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>
