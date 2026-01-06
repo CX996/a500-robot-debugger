@@ -1,0 +1,9 @@
+# 忽略不必要的文件
+node_modules/
+.env
+.DS_Store
+*.log
+.trae/
+.vscode/
+.idea/
+Thumbs.db
