@@ -2,46 +2,20 @@
   "version": 2,
   "builds": [
     {
-      "src": "**/*",
+      "src": "index.html",
       "use": "@vercel/static"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/*.css",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css; charset=utf-8"
-        }
-      ]
     },
     {
-      "source": "/*.js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
-        }
-      ]
+      "src": "style.css",
+      "use": "@vercel/static"
     },
     {
-      "source": "/*.svg",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/svg+xml; charset=utf-8"
-        }
-      ]
+      "src": "script.js",
+      "use": "@vercel/static"
     },
     {
-      "source": "/index.html",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
-        }
-      ]
+      "src": "welding-scene.svg",
+      "use": "@vercel/static"
     }
   ]
 }
