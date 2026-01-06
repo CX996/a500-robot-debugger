@@ -144,10 +144,6 @@
                     
                     <div class="visualization-main">
                         <img src="welding-scene.svg" alt="焊接场景" class="welding-image">
-                        <div class="mode-toggle">
-                            <button class="mode-btn active">自动模式</button>
-                            <button class="mode-btn">手动调试 (JOG)</button>
-                        </div>
                         <div class="auto-scanning">
                             <span>Auto-scanning enabled</span>
                         </div>
@@ -246,55 +242,104 @@
                             <div class="control-group">
                                 <label class="control-label">运动模式</label>
                                 <div class="control-buttons">
-                                    <button class="control-btn secondary">关节坐标</button>
-                                    <button class="control-btn secondary">世界坐标系</button>
-                                    <button class="control-btn secondary">工具坐标系</button>
-                                </div>
+                                <button class="control-btn secondary">世界坐标系</button>
+                                <button class="control-btn secondary">工具坐标系</button>
+                            </div>
                             </div>
                             
                             <div class="control-group">
                                 <label class="control-label">点动控制 (Jogging)</label>
                                 <div class="jog-controls">
-                                    <div class="jog-axis">
-                                        <label>J1</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn left">+</button>
-                                            <button class="jog-btn right">-</button>
+                                    <!-- 笛卡尔坐标系移动按钮 -->
+                                    <div class="jog-section">
+                                        <h3 class="jog-section-title">笛卡尔坐标系</h3>
+                                        <div class="jog-axis">
+                                            <label>X</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>Y</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>Z</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>RX</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>RY</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>RZ</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="jog-axis">
-                                        <label>J2</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn up">+</button>
-                                            <button class="jog-btn down">-</button>
+                                    <!-- 关节坐标系移动按钮 -->
+                                    <div class="jog-section">
+                                        <h3 class="jog-section-title">关节坐标系</h3>
+                                        <div class="jog-axis">
+                                            <label>J1</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="jog-axis">
-                                        <label>J3</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn up">+</button>
-                                            <button class="jog-btn down">-</button>
+                                        <div class="jog-axis">
+                                            <label>J2</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="jog-axis">
-                                        <label>J4</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn up">+</button>
-                                            <button class="jog-btn down">-</button>
+                                        <div class="jog-axis">
+                                            <label>J3</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="jog-axis">
-                                        <label>J5</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn up">+</button>
-                                            <button class="jog-btn down">-</button>
+                                        <div class="jog-axis">
+                                            <label>J4</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="jog-axis">
-                                        <label>J6</label>
-                                        <div class="jog-buttons">
-                                            <button class="jog-btn up">+</button>
-                                            <button class="jog-btn down">-</button>
+                                        <div class="jog-axis">
+                                            <label>J5</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
+                                        </div>
+                                        <div class="jog-axis">
+                                            <label>J6</label>
+                                            <div class="jog-buttons">
+                                                <button class="jog-btn up">+</button>
+                                                <button class="jog-btn down">-</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -317,6 +362,10 @@
                         <div class="mode-controls">
                             <button class="mode-btn active">仅仿真</button>
                             <button class="mode-btn">真机执行</button>
+                        </div>
+                        <div class="mode-controls">
+                            <button class="mode-btn active">自动</button>
+                            <button class="mode-btn">手动 (JOG)</button>
                         </div>
                     </div>
                 </aside>
