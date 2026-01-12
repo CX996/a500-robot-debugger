@@ -222,6 +222,425 @@ body {
 
 /* 移除可能导致兼容性问题的自定义滚动条样式 */
 
+/* 模板管理标签页样式 */
+.template-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.template-item {
+    background-color: #1e2a42;
+    border-radius: 6px;
+    padding: 1rem;
+    border-left: 3px solid #2d3b55;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.template-item:hover {
+    background-color: #2d3b55;
+    transform: translateX(2px);
+}
+
+.template-item.active {
+    background-color: #1e2a42;
+    border-left-color: #00aaff;
+}
+
+.template-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.template-name {
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+.template-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.template-status.selected {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+/* 焊缝可视化样式 */
+.weld-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.weld-path {
+    position: absolute;
+    background-color: rgba(0, 170, 255, 0.6);
+    height: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.weld-path.selected {
+    background-color: rgba(255, 87, 34, 0.8);
+    height: 6px;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.6);
+}
+
+.editing-tools {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgba(18, 26, 42, 0.8);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.edit-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.edit-info.horizontal {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-label {
+    color: #8a96a8;
+}
+
+.info-value {
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+/* 水平布局样式 */
+.horizontal-layout {
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    align-items: stretch;
+}
+
+.visualization-main.horizontal {
+    flex: 2;
+    min-height: 400px;
+}
+
+.editing-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+    min-width: 300px;
+}
+
+.editing-tools.horizontal {
+    position: relative;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: transparent;
+    padding: 0;
+}
+
+.editing-tools.horizontal .tool-btn {
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.editing-tools.horizontal .tool-btn:hover {
+    background-color: #2d3b55;
+    transform: none;
+}
+
+.related-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.related-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+}
+
+.related-name {
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+.related-btn {
+    padding: 0.25rem 0.75rem;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.related-btn:hover {
+    background-color: #0088cc;
+}
+
+.template-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: #8a96a8;
+}
+
+.template-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.template-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 300px);
+}
+
+.template-section {
+    background-color: #1e2a42;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.template-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e0e6ed;
+    margin-bottom: 1rem;
+}
+
+.template-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a96a8;
+}
+
+.form-input, .form-select, .form-textarea {
+    padding: 0.75rem;
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    color: #e0e6ed;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #00aaff;
+    background-color: #1e2a42;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.template-params {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.param-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.param-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.param-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a96a8;
+}
+
+.param-input {
+    padding: 0.75rem;
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    color: #e0e6ed;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.param-input:focus {
+    outline: none;
+    border-color: #00aaff;
+    background-color: #1e2a42;
+}
+
+.template-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.property-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+}
+
+.property-label {
+    color: #8a96a8;
+    font-size: 0.9rem;
+}
+
+.property-value {
+    font-weight: 600;
+    color: #e0e6ed;
+    font-size: 0.9rem;
+}
+
+.template-history {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 0.75rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+    border-left: 3px solid #2d3b55;
+}
+
+.history-time {
+    font-size: 0.8rem;
+    color: #8a96a8;
+    margin-bottom: 0.25rem;
+}
+
+.history-action {
+    font-weight: 600;
+    color: #e0e6ed;
+    margin-bottom: 0.25rem;
+}
+
+.history-user {
+    font-size: 0.8rem;
+    color: #00aaff;
+}
+
+.related-processes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.related-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+}
+
+.related-name {
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+.related-btn {
+    padding: 0.25rem 0.75rem;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.related-btn:hover {
+    background-color: #0088cc;
+}
+
 /* 标签页样式 */
 .tab-pane {
     display: none;
@@ -287,7 +706,25 @@ body {
 .jog-buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
+}
+
+.jog-input {
+    width: 60px;
+    padding: 0.5rem;
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 4px;
+    color: #e0e6ed;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.jog-input:focus {
+    outline: none;
+    border-color: #00aaff;
+    background-color: #1e2a42;
 }
 
 .jog-btn {
@@ -1162,6 +1599,13 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.template-actions, .process-actions, .diagnosis-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+    align-items: center;
 }
 
 .camera-status, .coordinate-status {

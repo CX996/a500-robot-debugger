@@ -84,6 +84,25 @@ function updateRealTimeData() {
     });
 }
 
+// 速度滑块联动功能
+function initSpeedControl() {
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    
+    if (speedSlider && speedValue) {
+        // 初始化显示
+        speedValue.textContent = `当前速度: ${speedSlider.value}%`;
+        
+        // 添加滑块事件监听
+        speedSlider.addEventListener('input', () => {
+            speedValue.textContent = `当前速度: ${speedSlider.value}%`;
+        });
+    }
+}
+
+// 初始化速度控制
+initSpeedControl();
+
 // 定时更新数据，每2秒一次
 setInterval(updateRealTimeData, 2000);
 
