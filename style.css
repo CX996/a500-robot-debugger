@@ -354,7 +354,18 @@ body {
 
 .visualization-main.horizontal {
     flex: 2;
-    min-height: 400px;
+    min-height: 300px;
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.visualization-main.horizontal .welding-image {
+    max-height: 350px;
+    width: auto;
+    object-fit: contain;
 }
 
 .editing-panel {
@@ -1631,7 +1642,7 @@ body {
 }
 
 .welding-image {
-    width: 100%;
+    width: 60%;
     height: 100%;
     object-fit: cover;
 }
