@@ -706,7 +706,7 @@ body {
 .jog-axis {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .jog-axis label {
