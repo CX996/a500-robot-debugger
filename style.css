@@ -143,7 +143,7 @@ body {
 
 .main-content {
     display: grid;
-    grid-template-columns: 320px 1fr 320px;
+    grid-template-columns: 300px 1fr 300px;
     gap: 1rem;
     padding: 1rem;
     flex: 1;
@@ -690,7 +690,7 @@ body {
 .jog-section {
     background-color: #1e2a42;
     border-radius: 6px;
-    padding: 1rem;
+    padding: 0.5rem;
     border: 1px solid #2d3b55;
 }
 
@@ -1712,7 +1712,7 @@ body {
 /* 右侧边栏 */
 .sidebar-right {
     overflow-y: auto;
-    padding-left: 0.5rem;
+    padding-left: 0.1rem;
     max-height: 600px;
 }
 
