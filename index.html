@@ -99,26 +99,20 @@
                     
                     <div class="section">
                         <h2 class="section-title">焊缝编辑工具</h2>
-                        <div class="tool-grid">
-                            <button class="tool-btn">
-                                <i class="fas fa-align-left"></i>
-                                <span>校正路径</span>
-                            </button>
-                            <button class="tool-btn">
-                                <i class="fas fa-crosshairs"></i>
-                                <span>微调起点</span>
-                            </button>
-                        </div>
-                        
+
                         <div class="control-buttons">
                             <button class="control-btn primary">
                                 <i class="fas fa-search"></i>
                                 一键识别 + 扫描
                             </button>
+                            <button class="control-btn primary">
+                                <i class="fas fa-play"></i>
+                                开始执行
+                            </button>
                             <div class="control-row">
-                                <button class="control-btn secondary">
-                                    <i class="fas fa-play"></i>
-                                    开始执行
+                                 <button class="control-btn secondary">
+                                    <i class="fas fa-pause"></i>
+                                    暂停焊接
                                 </button>
                                 <button class="control-btn secondary">
                                     <i class="fas fa-undo"></i>
@@ -261,7 +255,7 @@
                                             <label>X</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="123.45" min="0.1" max="1000" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
@@ -269,7 +263,7 @@
                                             <label>Y</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="-67.89" min="-1000" max="1000" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
@@ -277,7 +271,7 @@
                                             <label>Z</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="234.56" min="0" max="1000" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
@@ -285,7 +279,7 @@
                                             <label>RX</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
@@ -293,7 +287,7 @@
                                             <label>RY</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="-5.67" min="-180" max="180" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
@@ -301,63 +295,12 @@
                                             <label>RZ</label>
                                             <div class="jog-buttons">
                                                 <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
+                                                <input type="number" class="jog-input" value="89.01" min="-180" max="180" step="0.01" readonly>
                                                 <button class="jog-btn up">+</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 关节坐标系移动按钮 -->
-                                    <div class="jog-section">
-                                        <h3 class="jog-section-title">关节坐标系</h3>
-                                        <div class="jog-axis">
-                                            <label>J1</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="jog-axis">
-                                            <label>J2</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="jog-axis">
-                                            <label>J3</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="jog-axis">
-                                            <label>J4</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="jog-axis">
-                                            <label>J5</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="jog-axis">
-                                            <label>J6</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="1" min="0.1" max="100" step="0.1">
-                                                <button class="jog-btn up">+</button>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                             
@@ -424,66 +367,56 @@
                 
                 <!-- 右侧边栏 -->
                 <aside class="sidebar-right">
+                    <!-- 关节坐标系移动按钮 -->
                     <div class="section">
-                        <h2 class="section-title">实时位姿</h2>
-                        <div class="pose-info">
-                            <div class="pose-group">
-                                <h3 class="pose-title">关节角度 (°)</h3>
-                                <div class="pose-values">
-                                    <div class="pose-item">
-                                        <span class="pose-label">J1</span>
-                                        <span class="pose-value">12.34</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">J2</span>
-                                        <span class="pose-value">-45.67</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">J3</span>
-                                        <span class="pose-value">78.90</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">J4</span>
-                                        <span class="pose-value">-12.34</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">J5</span>
-                                        <span class="pose-value">56.78</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">J6</span>
-                                        <span class="pose-value">-90.12</span>
-                                    </div>
+                        <h2 class="section-title">关节控制</h2>
+                        <div class="jog-section">
+                            <div class="jog-axis">
+                                <label>J1</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
                                 </div>
                             </div>
-                            
-                            <div class="pose-group">
-                                <h3 class="pose-title">TCP坐标 (mm)</h3>
-                                <div class="pose-values">
-                                    <div class="pose-item">
-                                        <span class="pose-label">X</span>
-                                        <span class="pose-value">123.45</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">Y</span>
-                                        <span class="pose-value">-67.89</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">Z</span>
-                                        <span class="pose-value">234.56</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">RX</span>
-                                        <span class="pose-value">12.34</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">RY</span>
-                                        <span class="pose-value">-5.67</span>
-                                    </div>
-                                    <div class="pose-item">
-                                        <span class="pose-label">RZ</span>
-                                        <span class="pose-value">89.01</span>
-                                    </div>
+                            <div class="jog-axis">
+                                <label>J2</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="-45.67" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
+                                </div>
+                            </div>
+                            <div class="jog-axis">
+                                <label>J3</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="78.90" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
+                                </div>
+                            </div>
+                            <div class="jog-axis">
+                                <label>J4</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="-12.34" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
+                                </div>
+                            </div>
+                            <div class="jog-axis">
+                                <label>J5</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="56.78" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
+                                </div>
+                            </div>
+                            <div class="jog-axis">
+                                <label>J6</label>
+                                <div class="jog-buttons">
+                                    <button class="jog-btn down">-</button>
+                                    <input type="number" class="jog-input" value="-90.12" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn up">+</button>
                                 </div>
                             </div>
                         </div>

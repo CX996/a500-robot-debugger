@@ -82,6 +82,42 @@ function updateRealTimeData() {
             value.textContent = `${speed.toFixed(1)} m/min`;
         }
     });
+    
+    // 更新模板管理界面的实时位姿
+    const jogInputs = document.querySelectorAll('.jog-input');
+    if (jogInputs.length > 0) {
+        // 更新笛卡尔坐标
+        let x = 123.45 + (Math.random() - 0.5) * 0.2;
+        let y = -67.89 + (Math.random() - 0.5) * 0.2;
+        let z = 234.56 + (Math.random() - 0.5) * 0.2;
+        let rx = 12.34 + (Math.random() - 0.5) * 0.1;
+        let ry = -5.67 + (Math.random() - 0.5) * 0.1;
+        let rz = 89.01 + (Math.random() - 0.5) * 0.1;
+        
+        // 更新输入框
+        const xInput = document.querySelector('.jog-axis:nth-child(1) input.jog-input');
+        const yInput = document.querySelector('.jog-axis:nth-child(2) input.jog-input');
+        const zInput = document.querySelector('.jog-axis:nth-child(3) input.jog-input');
+        const rxInput = document.querySelector('.jog-axis:nth-child(4) input.jog-input');
+        const ryInput = document.querySelector('.jog-axis:nth-child(5) input.jog-input');
+        const rzInput = document.querySelector('.jog-axis:nth-child(6) input.jog-input');
+        
+        if (xInput) xInput.value = x.toFixed(2);
+        if (yInput) yInput.value = y.toFixed(2);
+        if (zInput) zInput.value = z.toFixed(2);
+        if (rxInput) rxInput.value = rx.toFixed(2);
+        if (ryInput) ryInput.value = ry.toFixed(2);
+        if (rzInput) rzInput.value = rz.toFixed(2);
+        
+        // 更新运动控制界面的点动输入框
+        const jogInputs = document.querySelectorAll('.jog-input');
+        jogInputs.forEach((input, index) => {
+            let value = parseFloat(input.value);
+            // 模拟微小波动
+            value += (Math.random() - 0.5) * 0.1;
+            input.value = value.toFixed(2);
+        });
+    }
 }
 
 // 速度滑块联动功能
