@@ -60,6 +60,16 @@
                         <i class="fas fa-user-circle"></i>
                     </span>
                     <span class="user-name">Admin CX</span>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" id="adminBtn">
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="adminMenu">
+                            <button class="dropdown-item" id="developerOption">高级用户登录</button>
+                            <button class="dropdown-item">用户设置</button>
+                            <button class="dropdown-item" id="logoutBtn">退出登录</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -1070,5 +1080,33 @@
     </div>
     
     <script src="script.js"></script>
+    
+    <!-- 密码输入弹窗 -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>高级用户验证</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="role-selector">
+                    <button class="role-btn active" data-role="engineer">工程师</button>
+                    <button class="role-btn" data-role="developer">开发者</button>
+                </div>
+                <p>请输入密码：</p>
+                <div class="password-container">
+                    <input type="password" id="passwordInput" placeholder="输入密码">
+                    <button class="toggle-password" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="control-btn secondary" id="cancelBtn">取消</button>
+                <button class="control-btn primary" id="confirmBtn">确认</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -231,3 +231,146 @@ dangerBtns.forEach(btn => {
         emergencyStop();
     });
 });
+
+// 等待DOM加载完成后执行
+window.addEventListener('DOMContentLoaded', () => {
+    // 权限管理 - 三级权限：technician（技术人员）、engineer（工程师）、developer（开发者）
+    let currentRole = localStorage.getItem('userRole') || 'technician';
+
+    // 密码配置
+    const passwords = {
+        engineer: 'XG',
+        developer: 'XG123456'
+    };
+
+    // 获取DOM元素
+    const adminBtn = document.getElementById('adminBtn');
+    const adminMenu = document.getElementById('adminMenu');
+    const developerOption = document.getElementById('developerOption');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const passwordModal = document.getElementById('passwordModal');
+    const closeModal = document.getElementById('closeModal');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const passwordInput = document.getElementById('passwordInput');
+    const togglePassword = document.getElementById('togglePassword');
+    const errorMessage = document.getElementById('errorMessage');
+    const roleBtns = document.querySelectorAll('.role-btn');
+    const navBtns = document.querySelectorAll('.nav-btn');
+
+    // 初始化角色
+    function initRole() {
+        updateNavigationVisibility();
+    }
+
+    // 更新导航标签页可见性
+    function updateNavigationVisibility() {
+        // 移除所有角色类
+        document.body.classList.remove('technician', 'engineer', 'developer');
+        // 添加当前角色类
+        document.body.classList.add(currentRole);
+    }
+
+    // 切换下拉菜单
+    adminBtn.addEventListener('click', () => {
+        adminMenu.classList.toggle('show');
+    });
+
+    // 角色选择功能
+    roleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            roleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // 点击开发者选项，显示密码弹窗
+    developerOption.addEventListener('click', () => {
+        adminMenu.classList.remove('show');
+        passwordModal.classList.add('show');
+        passwordInput.focus();
+    });
+
+    // 关闭模态框
+    function closePasswordModal() {
+        passwordModal.classList.remove('show');
+        passwordInput.value = '';
+        errorMessage.textContent = '';
+        // 重置角色选择
+        roleBtns.forEach(b => b.classList.remove('active'));
+        roleBtns[0].classList.add('active');
+    }
+
+    closeModal.addEventListener('click', closePasswordModal);
+    cancelBtn.addEventListener('click', closePasswordModal);
+
+    // 点击模态框外部关闭
+    window.addEventListener('click', (e) => {
+        if (e.target === passwordModal) {
+            closePasswordModal();
+        }
+    });
+
+    // 密码验证
+    confirmBtn.addEventListener('click', () => {
+        const password = passwordInput.value;
+        const selectedRole = document.querySelector('.role-btn.active').dataset.role;
+        
+        if (password === passwords[selectedRole]) {
+            // 密码正确，设置角色
+            currentRole = selectedRole;
+            localStorage.setItem('userRole', currentRole);
+            updateNavigationVisibility();
+            closePasswordModal();
+            alert(`${selectedRole === 'engineer' ? '工程师' : '开发者'}权限已启用！`);
+        } else {
+            // 密码错误
+            errorMessage.textContent = '密码错误，请重试！';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    });
+
+    // 回车键验证密码
+    passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            confirmBtn.click();
+        }
+    });
+
+    // 密码显示/隐藏切换功能
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        // 切换眼睛图标
+        const icon = togglePassword.querySelector('i');
+        if (type === 'password') {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        } else {
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        }
+    });
+
+    // 退出登录功能
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            currentRole = 'technician';
+            localStorage.removeItem('userRole');
+            updateNavigationVisibility();
+            adminMenu.classList.remove('show');
+            alert('已退出登录，切换到技术人员权限！');
+        });
+    }
+
+    // 点击页面其他地方关闭下拉菜单
+    window.addEventListener('click', (e) => {
+        if (!e.target.closest('.user-profile')) {
+            adminMenu.classList.remove('show');
+        }
+    });
+
+    // 初始化
+    initRole();
+});

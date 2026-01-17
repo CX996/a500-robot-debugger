@@ -141,6 +141,226 @@ body {
     flex-direction: column;
 }
 
+/* 基于角色的导航标签页可见性控制 */
+/* 技术人员：只能使用任务管理界面 */
+.main-nav .nav-btn {
+    display: none;
+}
+
+.main-nav .nav-btn[data-tab="task"] {
+    display: flex;
+}
+
+/* 工程师：可以使用任务管理、运动控制、模板管理、工艺设置 */
+.engineer .main-nav .nav-btn[data-tab="motion"],
+.engineer .main-nav .nav-btn[data-tab="template"],
+.engineer .main-nav .nav-btn[data-tab="process"] {
+    display: flex;
+}
+
+/* 开发者：可以使用所有界面 */
+.developer .main-nav .nav-btn {
+    display: flex;
+}
+
+/* 下拉菜单样式 */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background-color: #1e2a42;
+    border-radius: 8px;
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    color: #8a96a8;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.25rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1e2a42;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    padding: 0.5rem 0;
+    min-width: 150px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #e0e6ed;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #2d3b55;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #2d3b55;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #e0e6ed;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: #8a96a8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #e0e6ed;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-body p {
+    margin: 0 0 1rem 0;
+    color: #e0e6ed;
+}
+
+.password-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 0.75rem 3rem 0.75rem 0.75rem;
+    background-color: #1e2a42;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    color: #e0e6ed;
+    font-size: 1rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #8a96a8;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password:hover {
+    color: #e0e6ed;
+}
+
+.role-selector {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #1e2a42;
+    border: 1px solid #2d3b55;
+    border-radius: 6px;
+    color: #8a96a8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.role-btn:hover {
+    background-color: #2d3b55;
+    color: #e0e6ed;
+}
+
+.role-btn.active {
+    background-color: #00aaff;
+    color: white;
+    border-color: #00aaff;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 1px solid #2d3b55;
+}
+
 .main-content {
     display: grid;
     grid-template-columns: 300px 1fr 300px;
