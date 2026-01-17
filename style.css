@@ -11,6 +11,190 @@ body {
     line-height: 1.6;
 }
 
+/* 版本标识基础样式 */
+.desktop-version {
+    /* 电脑版默认样式，已在现有CSS中定义 */
+}
+
+.mobile-version {
+    /* 手机版基础样式 */
+    font-size: 16px; /* 确保基础字体大小 */
+}
+
+/* 手机版整体布局重构 */
+.mobile-version .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 手机版头部优化 */
+.mobile-version .header {
+    flex-shrink: 0;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.mobile-version .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.mobile-version .logo {
+    font-size: 1.25rem;
+}
+
+.mobile-version .header-center {
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.mobile-version .status-item {
+    flex: 1;
+    text-align: center;
+}
+
+/* 手机版导航优化 - 底部固定导航栏 */
+.mobile-version .header-right {
+    width: 100%;
+    order: 99;
+}
+
+.mobile-version .main-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #121a2a;
+    border-radius: 0;
+    border-top: 1px solid #1e2a42;
+    padding: 0.5rem;
+    justify-content: space-around;
+    z-index: 1000;
+}
+
+.mobile-version .nav-btn {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.mobile-version .nav-btn span {
+    display: block;
+}
+
+/* 手机版用户资料简化 */
+.mobile-version .user-profile {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+}
+
+/* 手机版主要内容区域优化 */
+.mobile-version .tab-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px; /* 为底部导航栏留出空间 */
+}
+
+.mobile-version .main-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    padding: 0.75rem;
+}
+
+/* 手机版侧边栏优化 - 单列布局 */
+.mobile-version .sidebar-left,
+.mobile-version .sidebar-right {
+    overflow: visible;
+    padding: 0;
+    max-height: none;
+}
+
+/* 手机版控件优化 - 增大点击区域 */
+.mobile-version .control-btn,
+.mobile-version .tool-btn,
+.mobile-version .param-btn,
+.mobile-version .alert-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+}
+
+/* 手机版表格和列表优化 */
+.mobile-version .tcp-values,
+.mobile-version .settings-grid,
+.mobile-version .health-dashboard {
+    grid-template-columns: 1fr;
+}
+
+/* 手机版模态框优化 */
+.mobile-version .modal-content {
+    width: 95%;
+    max-width: 350px;
+}
+
+/* 手机版下拉菜单优化 */
+.mobile-version .dropdown-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 300px;
+    z-index: 2000;
+}
+
+/* 手机版运动控制界面优化 */
+.mobile-version .jog-axis {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.mobile-version .jog-buttons {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.mobile-version .jog-btn {
+    flex: 1;
+    min-height: 44px;
+}
+
+/* 手机版工艺设置界面优化 */
+.mobile-version .library-items {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.mobile-version .library-item {
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+}
+
+/* 手机版系统诊断界面优化 */
+.mobile-version .diagnosis-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.mobile-version .diagnosis-item {
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+}
+
 .container {
     display: flex;
     flex-direction: column;

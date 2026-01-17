@@ -371,6 +371,35 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 版本切换功能
+    const switchToMobileBtn = document.getElementById('switchToMobile');
+    const switchToDesktopBtn = document.getElementById('switchToDesktop');
+    
+    // 初始化版本
+    function initVersion() {
+        const savedVersion = localStorage.getItem('appVersion') || 'desktop';
+        document.body.classList.add(savedVersion + '-version');
+    }
+    
+    // 切换到手机版
+    switchToMobileBtn.addEventListener('click', () => {
+        document.body.classList.remove('desktop-version');
+        document.body.classList.add('mobile-version');
+        localStorage.setItem('appVersion', 'mobile');
+        adminMenu.classList.remove('show');
+        alert('已切换到手机版！');
+    });
+    
+    // 切换到电脑版
+    switchToDesktopBtn.addEventListener('click', () => {
+        document.body.classList.remove('mobile-version');
+        document.body.classList.add('desktop-version');
+        localStorage.setItem('appVersion', 'desktop');
+        adminMenu.classList.remove('show');
+        alert('已切换到电脑版！');
+    });
+    
     // 初始化
     initRole();
+    initVersion();
 });
