@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-500机器人调试器</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interface-styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -85,29 +86,29 @@
             <!-- 任务管理标签页 -->
             <main class="main-content tab-pane active" id="task">
                 <!-- 左侧边栏 -->
-                <aside class="sidebar-left">
+                <aside class="sidebar-left task-sidebar-left">
                     <div class="section">
                         <h2 class="section-title">焊接任务管理</h2>
-                        <div class="weld-list">
-                            <div class="weld-item">
-                                <div class="weld-header">
-                                    <div class="weld-id">ID: WM-2026-001</div>
-                                    <div class="weld-type">直焊缝-倾斜</div>
-                                    <div class="weld-status active">进行中</div>
+                        <div class="weld-list task-weld-list">
+                            <div class="weld-item task-weld-item">
+                                <div class="weld-header task-weld-header">
+                                    <div class="weld-id task-weld-id">ID: WM-2026-001</div>
+                                    <div class="weld-type task-weld-type">直焊缝-倾斜</div>
+                                    <div class="weld-status task-weld-status active">进行中</div>
                                 </div>
                             </div>
-                            <div class="weld-item">
-                                <div class="weld-header">
-                                    <div class="weld-id">ID: WM-2026-002</div>
-                                    <div class="weld-type">V型坡口焊缝</div>
-                                    <div class="weld-status pending">待处理</div>
+                            <div class="weld-item task-weld-item">
+                                <div class="weld-header task-weld-header">
+                                    <div class="weld-id task-weld-id">ID: WM-2026-002</div>
+                                    <div class="weld-type task-weld-type">V型坡口焊缝</div>
+                                    <div class="weld-status task-weld-status pending">待处理</div>
                                 </div>
                             </div>
-                            <div class="weld-item">
-                                <div class="weld-header">
-                                    <div class="weld-id">ID: WM-2026-003</div>
-                                    <div class="weld-type">搭接焊缝</div>
-                                    <div class="weld-status completed">已完成</div>
+                            <div class="weld-item task-weld-item">
+                                <div class="weld-header task-weld-header">
+                                    <div class="weld-id task-weld-id">ID: WM-2026-003</div>
+                                    <div class="weld-type task-weld-type">搭接焊缝</div>
+                                    <div class="weld-status task-weld-status completed">已完成</div>
                                 </div>
                             </div>
                         </div>
@@ -115,32 +116,32 @@
                     
                     <div class="section">
                         <h2 class="section-title">焊接控制</h2>
-                        <div class="control-buttons">
-                            <div class="control-row">                         
-                                <button class="control-btn primary">
+                        <div class="control-buttons task-control-buttons">
+                            <div class="control-row task-control-row">                          
+                                <button class="control-btn task-control-btn primary">
                                     <i class="fas fa-search"></i>
                                     一键识别 + 扫描
                                 </button>
-                                <button class="control-btn primary">
+                                <button class="control-btn task-control-btn primary">
                                     <i class="fas fa-search"></i>
                                     焊接工艺参数选择
                                 </button>
                             </div>   
-                            <div class="control-row">
-                                <button class="control-btn secondary">
+                            <div class="control-row task-control-row">
+                                <button class="control-btn task-control-btn secondary">
                                     <i class="fas fa-play"></i>
                                     开始执行
                                 </button>
-                                 <button class="control-btn secondary">
+                                 <button class="control-btn task-control-btn secondary">
                                     <i class="fas fa-pause"></i>
                                     暂停焊接
                                 </button>
-                                <button class="control-btn secondary">
+                                <button class="control-btn task-control-btn secondary">
                                     <i class="fas fa-undo"></i>
                                     智能续焊
                                 </button>
                             </div>
-                            <button class="control-btn danger">
+                            <button class="control-btn task-control-btn danger">
                                 <i class="fas fa-stop"></i>
                                 强制终止任务
                             </button>
@@ -149,50 +150,50 @@
                 </aside>
                 
                 <!-- 中央可视化区域 -->
-                <section class="visualization">
-                    <div class="visualization-header">
-                        <div class="camera-status">
+                <section class="visualization task-visualization">
+                    <div class="visualization-header task-visualization-header">
+                        <div class="camera-status task-camera-status">
                             <i class="fas fa-video"></i>
                             <span>Camera Online: WTS-2022 (2.0MP)</span>
                         </div>
-                        <div class="coordinate-status">
+                        <div class="coordinate-status task-coordinate-status">
                             <!-- <i class="fas fa-check-circle green"></i> -->
                             <!-- <span>Correct World WCS</span> -->
                         </div>
                     </div>
                     
-                    <div class="visualization-main">
-                        <img src="welding-scene.png" alt="焊接场景" class="welding-image">
-                        <div class="auto-scanning">
+                    <div class="visualization-main task-visualization-main">
+                        <img src="welding-scene.png" alt="焊接场景" class="welding-image task-welding-image">
+                        <div class="auto-scanning task-auto-scanning">
                             <span>Auto-scanning enabled</span>
                         </div>
                     </div>
                     
-                    <div class="project-info">
+                    <div class="project-info task-project-info">
                         <!-- <span>Project: CA500-CON-14rtJ-Orocess.awm</span>
                         <span>运行时间: 04h:23m:15s</span> -->
                     </div>
                 </section>
                 
                 <!-- 右侧边栏 -->
-                <aside class="sidebar-right">
+                <aside class="sidebar-right task-sidebar-right">
                     <div class="section">
                         <h2 class="section-title">实时状态监视</h2>
-                        <div class="tcp-coordinates">
-                            <div class="tcp-item">
-                                <span class="tcp-label">TCP</span>
-                                <div class="tcp-values">
-                                    <span class="tcp-value">
-                                        <span class="tcp-axis">TCF1</span>
-                                        <span class="tcp-num">452.12</span>
+                        <div class="tcp-coordinates task-tcp-coordinates">
+                            <div class="tcp-item task-tcp-item">
+                                <span class="tcp-label task-tcp-label">TCP</span>
+                                <div class="tcp-values task-tcp-values">
+                                    <span class="tcp-value task-tcp-value">
+                                        <span class="tcp-axis task-tcp-axis">TCF1</span>
+                                        <span class="tcp-num task-tcp-num">452.12</span>
                                     </span>
-                                    <span class="tcp-value">
-                                        <span class="tcp-axis">TCF2</span>
-                                        <span class="tcp-num">-108.45</span>
+                                    <span class="tcp-value task-tcp-value">
+                                        <span class="tcp-axis task-tcp-axis">TCF2</span>
+                                        <span class="tcp-num task-tcp-num">-108.45</span>
                                     </span>
-                                    <span class="tcp-value">
-                                        <span class="tcp-axis">TCF3</span>
-                                        <span class="tcp-num">210.88</span>
+                                    <span class="tcp-value task-tcp-value">
+                                        <span class="tcp-axis task-tcp-axis">TCF3</span>
+                                        <span class="tcp-num task-tcp-num">210.88</span>
                                     </span>
                                 </div>
                             </div>
@@ -254,70 +255,70 @@
             <!-- 运动控制标签页 -->
             <main class="main-content tab-pane" id="motion">
                 <!-- 左侧边栏 -->
-                <aside class="sidebar-left">
+                <aside class="sidebar-left motion-sidebar-left">
                     <div class="section">
                         <h2 class="section-title">运动控制</h2>
-                        <div class="control-panel">
-                            <div class="control-group">
-                                <label class="control-label">运动模式</label>
+                        <div class="control-panel motion-control-panel">
+                            <div class="control-group motion-control-group">
+                                <label class="control-label motion-control-label">运动模式</label>
                                 <div class="control-row">
                                 <button class="control-btn secondary">世界坐标系</button>
                                 <button class="control-btn secondary">工具坐标系</button>
                             </div>
                             </div>
                             
-                            <div class="control-group">
-                                <label class="control-label">点动控制 (Jogging)</label>
-                                <div class="jog-controls">
+                            <div class="control-group motion-control-group">
+                                <label class="control-label motion-control-label">点动控制 (Jogging)</label>
+                                <div class="jog-controls motion-jog-controls">
                                     <!-- 笛卡尔坐标系移动按钮 -->
-                                    <div class="jog-section">
-                                        <h3 class="jog-section-title">笛卡尔坐标系</h3>
-                                        <div class="jog-axis">
+                                    <div class="jog-section motion-jog-section">
+                                        <h3 class="jog-section-title motion-jog-section-title">笛卡尔坐标系</h3>
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>X</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="123.45" min="0.1" max="1000" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="123.45" min="0.1" max="1000" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
-                                        <div class="jog-axis">
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>Y</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="-67.89" min="-1000" max="1000" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="-67.89" min="-1000" max="1000" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
-                                        <div class="jog-axis">
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>Z</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="234.56" min="0" max="1000" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="234.56" min="0" max="1000" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
-                                        <div class="jog-axis">
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>RX</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
-                                        <div class="jog-axis">
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>RY</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="-5.67" min="-180" max="180" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="-5.67" min="-180" max="180" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
-                                        <div class="jog-axis">
+                                        <div class="jog-axis motion-jog-axis">
                                             <label>RZ</label>
-                                            <div class="jog-buttons">
-                                                <button class="jog-btn down">-</button>
-                                                <input type="number" class="jog-input" value="89.01" min="-180" max="180" step="0.01" readonly>
-                                                <button class="jog-btn up">+</button>
+                                            <div class="jog-buttons motion-jog-buttons">
+                                                <button class="jog-btn motion-jog-btn down">-</button>
+                                                <input type="number" class="jog-input motion-jog-input" value="89.01" min="-180" max="180" step="0.01" readonly>
+                                                <button class="jog-btn motion-jog-btn up">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -325,14 +326,14 @@
                                 </div>
                             </div>
                             
-                            <div class="control-group">
-                                <label class="control-label">速度控制</label>
-                                <div class="speed-control">
-                                    <span class="speed-label">0%</span>
-                                    <input type="range" class="speed-slider" id="speedSlider" min="0" max="100" value="50">
-                                    <span class="speed-label">100%</span>
+                            <div class="control-group motion-control-group">
+                                <label class="control-label motion-control-label">速度控制</label>
+                                <div class="speed-control motion-speed-control">
+                                    <span class="speed-label motion-speed-label">0%</span>
+                                    <input type="range" class="speed-slider motion-speed-slider" id="speedSlider" min="0" max="100" value="50">
+                                    <span class="speed-label motion-speed-label">100%</span>
                                 </div>
-                                <div class="speed-value" id="speedValue">当前速度: 50%</div>
+                                <div class="speed-value motion-speed-value" id="speedValue">当前速度: 50%</div>
                             </div>
                         </div>
                     </div>
@@ -351,8 +352,8 @@
                 </aside>
                 
                 <!-- 中央可视化区域 -->
-                <section class="visualization">
-                    <div class="visualization-header">
+                <section class="visualization motion-visualization">
+                    <div class="visualization-header motion-visualization-header">
                         <div class="simulation-status">
                             <i class="fas fa-check-circle green"></i>
                             <span>仿真环境已加载</span>
@@ -363,8 +364,8 @@
                         </div>
                     </div>
                     
-                    <div class="visualization-main">
-                        <img src="welding_robot.png" alt="机器人仿真场景" class="welding-image">
+                    <div class="visualization-main motion-visualization-main">
+                        <img src="welding_robot.png" alt="机器人仿真场景" class="welding-image motion-welding-image">
                         <div class="simulation-controls">
                             <button class="control-btn primary">
                                 <i class="fas fa-play"></i>
@@ -388,57 +389,57 @@
                 </section>
                 
                 <!-- 右侧边栏 -->
-                <aside class="sidebar-right">
+                <aside class="sidebar-right motion-sidebar-right">
                     <!-- 关节坐标系移动按钮 -->
                     <div class="section">
                         <h2 class="section-title">关节控制</h2>
-                        <div class="jog-section">
-                            <div class="jog-axis">
+                        <div class="jog-section motion-jog-section">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J1</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="12.34" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
-                            <div class="jog-axis">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J2</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="-45.67" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="-45.67" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
-                            <div class="jog-axis">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J3</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="78.90" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="78.90" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
-                            <div class="jog-axis">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J4</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="-12.34" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="-12.34" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
-                            <div class="jog-axis">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J5</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="56.78" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="56.78" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
-                            <div class="jog-axis">
+                            <div class="jog-axis motion-jog-axis">
                                 <label>J6</label>
-                                <div class="jog-buttons">
-                                    <button class="jog-btn down">-</button>
-                                    <input type="number" class="jog-input" value="-90.12" min="-180" max="180" step="0.01" readonly>
-                                    <button class="jog-btn up">+</button>
+                                <div class="jog-buttons motion-jog-buttons">
+                                    <button class="jog-btn motion-jog-btn down">-</button>
+                                    <input type="number" class="jog-input motion-jog-input" value="-90.12" min="-180" max="180" step="0.01" readonly>
+                                    <button class="jog-btn motion-jog-btn up">+</button>
                                 </div>
                             </div>
                         </div>
@@ -467,49 +468,49 @@
             <!-- 模板管理标签页 -->
             <main class="main-content tab-pane" id="template">
                 <!-- 左侧边栏 -->
-                <aside class="sidebar-left">
+                <aside class="sidebar-left template-sidebar-left">
                     <div class="section">
                         <h2 class="section-title">焊缝模板列表</h2>
-                        <div class="template-list">
-                            <div class="template-item active">
-                                <div class="template-header">
-                                    <div class="template-name">焊缝#WM-2026-001</div>
-                                    <div class="template-status selected">已选择</div>
+                        <div class="template-list template-template-list">
+                            <div class="template-item template-template-item active">
+                                <div class="template-header template-template-header">
+                                    <div class="template-name template-template-name">焊缝#WM-2026-001</div>
+                                    <div class="template-status template-template-status selected">已选择</div>
                                 </div>
-                                <div class="template-info">
+                                <div class="template-info template-template-info">
                                     <span>类型: 直焊缝</span>
                                     <span>长度: 450mm</span>
                                     <span>识别精度: 98.2%</span>
                                 </div>
                             </div>
-                            <div class="template-item">
-                                <div class="template-header">
-                                    <div class="template-name">焊缝#WM-2026-002</div>
-                                    <div class="template-status">未选择</div>
+                            <div class="template-item template-template-item">
+                                <div class="template-header template-template-header">
+                                    <div class="template-name template-template-name">焊缝#WM-2026-002</div>
+                                    <div class="template-status template-template-status">未选择</div>
                                 </div>
-                                <div class="template-info">
+                                <div class="template-info template-template-info">
                                     <span>类型: V型坡口</span>
                                     <span>长度: 320mm</span>
                                     <span>识别精度: 96.8%</span>
                                 </div>
                             </div>
-                            <div class="template-item">
-                                <div class="template-header">
-                                    <div class="template-name">焊缝#WM-2026-003</div>
-                                    <div class="template-status">未选择</div>
+                            <div class="template-item template-template-item">
+                                <div class="template-header template-template-header">
+                                    <div class="template-name template-template-name">焊缝#WM-2026-003</div>
+                                    <div class="template-status template-template-status">未选择</div>
                                 </div>
-                                <div class="template-info">
+                                <div class="template-info template-template-info">
                                     <span>类型: 搭接焊缝</span>
                                     <span>长度: 180mm</span>
                                     <span>识别精度: 95.5%</span>
                                 </div>
                             </div>
-                            <div class="template-item">
-                                <div class="template-header">
-                                    <div class="template-name">焊缝#WM-2026-004</div>
-                                    <div class="template-status">未选择</div>
+                            <div class="template-item template-template-item">
+                                <div class="template-header template-template-header">
+                                    <div class="template-name template-template-name">焊缝#WM-2026-004</div>
+                                    <div class="template-status template-template-status">未选择</div>
                                 </div>
-                                <div class="template-info">
+                                <div class="template-info template-template-info">
                                     <span>类型: 角焊缝</span>
                                     <span>长度: 260mm</span>
                                     <span>识别精度: 97.6%</span>
@@ -520,8 +521,8 @@
                 </aside>
                 
                 <!-- 中央编辑区域 -->
-                <section class="visualization">
-                    <div class="visualization-header">
+                <section class="visualization template-visualization">
+                    <div class="visualization-header template-visualization-header">
                         <div class="template-title">
                             <h2>焊缝可视化预览</h2>
                         </div>
@@ -546,8 +547,8 @@
                     </div>
                     
                     <div class="horizontal-layout">
-                        <div class="visualization-main horizontal">
-                            <img src="welding-scene.png" alt="焊缝可视化预览" class="welding-image">
+                        <div class="visualization-main horizontal template-visualization-main">
+                            <img src="welding-scene.png" alt="焊缝可视化预览" class="welding-image template-welding-image">
                             <div class="weld-overlay">
                                 <!-- 焊缝叠加层，用于显示焊缝路径和编辑标记 -->
                                 <div class="weld-path selected" id="weld-path-1"></div>
@@ -599,54 +600,54 @@
                 </section>
                 
                 <!-- 右侧边栏 -->
-                <aside class="sidebar-right">
+                <aside class="sidebar-right template-sidebar-right">
                     <div class="section">
                         <h2 class="section-title">焊缝详细信息</h2>
-                        <div class="template-properties">
-                            <div class="property-item">
-                                <span class="property-label">焊缝ID</span>
-                                <span class="property-value">WM-2026-001</span>
+                        <div class="template-properties template-template-properties">
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">焊缝ID</span>
+                                <span class="property-value template-property-value">WM-2026-001</span>
                             </div>
-                            <div class="property-item">
-                                <span class="property-label">焊缝类型</span>
-                                <span class="property-value">直焊缝</span>
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">焊缝类型</span>
+                                <span class="property-value template-property-value">直焊缝</span>
                             </div>
-                            <div class="property-item">
-                                <span class="property-label">识别时间</span>
-                                <span class="property-value">2026-01-12 10:24:09</span>
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">识别时间</span>
+                                <span class="property-value template-property-value">2026-01-12 10:24:09</span>
                             </div>
-                            <div class="property-item">
-                                <span class="property-label">识别精度</span>
-                                <span class="property-value">98.2%</span>
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">识别精度</span>
+                                <span class="property-value template-property-value">98.2%</span>
                             </div>
-                            <div class="property-item">
-                                <span class="property-label">状态</span>
-                                <span class="property-value">已选择</span>
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">状态</span>
+                                <span class="property-value template-property-value">已选择</span>
                             </div>
-                            <div class="property-item">
-                                <span class="property-label">来源</span>
-                                <span class="property-value">自动识别</span>
+                            <div class="property-item template-property-item">
+                                <span class="property-label template-property-label">来源</span>
+                                <span class="property-value template-property-value">自动识别</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="section">
                         <h2 class="section-title">修改历史</h2>
-                        <div class="template-history">
-                            <div class="history-item">
-                                <div class="history-time">2026-01-12 10:30:15</div>
-                                <div class="history-action">校正了焊缝路径</div>
-                                <div class="history-user">Admin CX</div>
+                        <div class="template-history template-template-history">
+                            <div class="history-item template-history-item">
+                                <div class="history-time template-history-time">2026-01-12 10:30:15</div>
+                                <div class="history-action template-history-action">校正了焊缝路径</div>
+                                <div class="history-user template-history-user">Admin CX</div>
                             </div>
-                            <div class="history-item">
-                                <div class="history-time">2026-01-12 10:28:45</div>
-                                <div class="history-action">微调了起点位置</div>
-                                <div class="history-user">Admin CX</div>
+                            <div class="history-item template-history-item">
+                                <div class="history-time template-history-time">2026-01-12 10:28:45</div>
+                                <div class="history-action template-history-action">微调了起点位置</div>
+                                <div class="history-user template-history-user">Admin CX</div>
                             </div>
-                            <div class="history-item">
-                                <div class="history-time">2026-01-12 10:24:09</div>
-                                <div class="history-action">自动识别生成</div>
-                                <div class="history-user">系统</div>
+                            <div class="history-item template-history-item">
+                                <div class="history-time template-history-time">2026-01-12 10:24:09</div>
+                                <div class="history-action template-history-action">自动识别生成</div>
+                                <div class="history-user template-history-user">系统</div>
                             </div>
                         </div>
                     </div>
@@ -657,36 +658,36 @@
             <!-- 工艺设置标签页 -->
             <main class="main-content tab-pane" id="process">
                 <!-- 左侧边栏 -->
-                <aside class="sidebar-left">
+                <aside class="sidebar-left process-sidebar-left">
                     <div class="section">
                         <h2 class="section-title">工艺专家库</h2>
                         <div class="process-library">
-                            <div class="library-group">
-                                <h3 class="library-title">材料类型</h3>
-                                <div class="library-items">
-                                    <button class="library-item active">碳钢</button>
-                                    <button class="library-item">不锈钢</button>
-                                    <button class="library-item">铝合金</button>
-                                    <button class="library-item">钛合金</button>
+                            <div class="library-group process-library-group">
+                                <h3 class="library-title process-library-title">材料类型</h3>
+                                <div class="library-items process-library-items">
+                                    <button class="library-item process-library-item active">碳钢</button>
+                                    <button class="library-item process-library-item">不锈钢</button>
+                                    <button class="library-item process-library-item">铝合金</button>
+                                    <button class="library-item process-library-item">钛合金</button>
                                 </div>
                             </div>
                             
-                            <div class="library-group">
-                                <h3 class="library-title">板厚 (mm)</h3>
-                                <div class="library-items">
-                                    <button class="library-item">1-3</button>
-                                    <button class="library-item active">3-6</button>
-                                    <button class="library-item">6-10</button>
-                                    <button class="library-item">10-15</button>
+                            <div class="library-group process-library-group">
+                                <h3 class="library-title process-library-title">板厚 (mm)</h3>
+                                <div class="library-items process-library-items">
+                                    <button class="library-item process-library-item">1-3</button>
+                                    <button class="library-item process-library-item active">3-6</button>
+                                    <button class="library-item process-library-item">6-10</button>
+                                    <button class="library-item process-library-item">10-15</button>
                                 </div>
                             </div>
                             
-                            <div class="library-group">
-                                <h3 class="library-title">气体组合</h3>
-                                <div class="library-items">
-                                    <button class="library-item active">Ar + CO₂</button>
-                                    <button class="library-item">纯Ar</button>
-                                    <button class="library-item">Ar + He</button>
+                            <div class="library-group process-library-group">
+                                <h3 class="library-title process-library-title">气体组合</h3>
+                                <div class="library-items process-library-items">
+                                    <button class="library-item process-library-item active">Ar + CO₂</button>
+                                    <button class="library-item process-library-item">纯Ar</button>
+                                    <button class="library-item process-library-item">Ar + He</button>
                                 </div>
                             </div>
                         </div>
@@ -718,8 +719,8 @@
                 </aside>
                 
                 <!-- 中央参数设置区域 -->
-                <section class="visualization">
-                    <div class="visualization-header">
+                <section class="visualization process-visualization">
+                    <div class="visualization-header process-visualization-header">
                         <div class="process-title">
                             <h2>焊接工艺参数设置</h2>
                         </div>
@@ -740,60 +741,60 @@
                     </div>
                     
                     <div class="process-settings">
-                        <div class="settings-grid">
-                            <div class="setting-item">
-                                <label class="setting-label">焊接电流 (A)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="210" min="50" max="500">
+                        <div class="settings-grid process-settings-grid">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">焊接电流 (A)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="210" min="50" max="500">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">焊接电压 (V)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="24" min="10" max="50" step="0.1">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">焊接电压 (V)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="24" min="10" max="50" step="0.1">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">送丝速度 (m/min)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="6.5" min="1" max="15" step="0.1">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">送丝速度 (m/min)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="6.5" min="1" max="15" step="0.1">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">焊接速度 (mm/s)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="8" min="1" max="20">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">焊接速度 (mm/s)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="8" min="1" max="20">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">气体流量 (L/min)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="15" min="5" max="30">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">气体流量 (L/min)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="15" min="5" max="30">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">预送气时间 (s)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="0.5" min="0" max="5" step="0.1">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">预送气时间 (s)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="0.5" min="0" max="5" step="0.1">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">滞后关气时间 (s)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="2" min="0" max="10" step="0.1">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">滞后关气时间 (s)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="2" min="0" max="10" step="0.1">
                                 </div>
                             </div>
                             
-                            <div class="setting-item">
-                                <label class="setting-label">引弧电流 (A)</label>
-                                <div class="setting-control">
-                                    <input type="number" class="setting-input" value="180" min="50" max="500">
+                            <div class="setting-item process-setting-item">
+                                <label class="setting-label process-setting-label">引弧电流 (A)</label>
+                                <div class="setting-control process-setting-control">
+                                    <input type="number" class="setting-input process-setting-input" value="180" min="50" max="500">
                                 </div>
                             </div>
                         </div>
@@ -801,56 +802,56 @@
                 </section>
                 
                 <!-- 右侧边栏 -->
-                <aside class="sidebar-right">
+                <aside class="sidebar-right process-sidebar-right">
                     <div class="section">
                         <h2 class="section-title">参数预览</h2>
-                        <div class="parameter-preview">
-                            <div class="preview-item">
-                                <span class="preview-label">电流范围</span>
-                                <span class="preview-value">200-220 A</span>
+                        <div class="parameter-preview process-parameter-preview">
+                            <div class="preview-item process-preview-item">
+                                <span class="preview-label process-preview-label">电流范围</span>
+                                <span class="preview-value process-preview-value">200-220 A</span>
                             </div>
-                            <div class="preview-item">
-                                <span class="preview-label">电压范围</span>
-                                <span class="preview-value">23-25 V</span>
+                            <div class="preview-item process-preview-item">
+                                <span class="preview-label process-preview-label">电压范围</span>
+                                <span class="preview-value process-preview-value">23-25 V</span>
                             </div>
-                            <div class="preview-item">
-                                <span class="preview-label">推荐速度</span>
-                                <span class="preview-value">7-9 mm/s</span>
+                            <div class="preview-item process-preview-item">
+                                <span class="preview-label process-preview-label">推荐速度</span>
+                                <span class="preview-value process-preview-value">7-9 mm/s</span>
                             </div>
-                            <div class="preview-item">
-                                <span class="preview-label">预计熔深</span>
-                                <span class="preview-value">2.5-3 mm</span>
+                            <div class="preview-item process-preview-item">
+                                <span class="preview-label process-preview-label">预计熔深</span>
+                                <span class="preview-value process-preview-value">2.5-3 mm</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="section">
                         <h2 class="section-title">历史工艺</h2>
-                        <div class="history-list">
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <span class="history-name">工艺#001</span>
-                                    <span class="history-date">2026-01-05</span>
+                        <div class="history-list process-history-list">
+                            <div class="history-item process-history-item">
+                                <div class="history-header process-history-header">
+                                    <span class="history-name process-history-name">工艺#001</span>
+                                    <span class="history-date process-history-date">2026-01-05</span>
                                 </div>
-                                <div class="history-info">
+                                <div class="history-info process-history-info">
                                     <span>碳钢 5mm Ar+CO₂</span>
                                 </div>
                             </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <span class="history-name">工艺#002</span>
-                                    <span class="history-date">2026-01-04</span>
+                            <div class="history-item process-history-item">
+                                <div class="history-header process-history-header">
+                                    <span class="history-name process-history-name">工艺#002</span>
+                                    <span class="history-date process-history-date">2026-01-04</span>
                                 </div>
-                                <div class="history-info">
+                                <div class="history-info process-history-info">
                                     <span>不锈钢 3mm 纯Ar</span>
                                 </div>
                             </div>
-                            <div class="history-item">
-                                <div class="history-header">
-                                    <span class="history-name">工艺#003</span>
-                                    <span class="history-date">2026-01-03</span>
+                            <div class="history-item process-history-item">
+                                <div class="history-header process-history-header">
+                                    <span class="history-name process-history-name">工艺#003</span>
+                                    <span class="history-date process-history-date">2026-01-03</span>
                                 </div>
-                                <div class="history-info">
+                                <div class="history-info process-history-info">
                                     <span>铝合金 8mm Ar+He</span>
                                 </div>
                             </div>
@@ -862,7 +863,7 @@
             <!-- 系统诊断标签页 -->
             <main class="main-content tab-pane" id="diagnosis">
                 <!-- 左侧边栏 -->
-                <aside class="sidebar-left">
+                <aside class="sidebar-left diagnosis-sidebar-left">
                     <div class="section">
                         <h2 class="section-title">系统诊断</h2>
                         <div class="diagnosis-menu">
@@ -875,33 +876,33 @@
                     
                     <div class="section">
                         <h2 class="section-title">设备列表</h2>
-                        <div class="device-list">
-                            <div class="device-item">
-                                <div class="device-icon robot"></div>
-                                <div class="device-info">
-                                    <div class="device-name">A-500机器人</div>
-                                    <div class="device-status online">在线</div>
+                        <div class="device-list diagnosis-device-list">
+                            <div class="device-item diagnosis-device-item">
+                                <div class="device-icon diagnosis-device-icon robot"></div>
+                                <div class="device-info diagnosis-device-info">
+                                    <div class="device-name diagnosis-device-name">A-500机器人</div>
+                                    <div class="device-status diagnosis-device-status online">在线</div>
                                 </div>
                             </div>
-                            <div class="device-item">
-                                <div class="device-icon camera"></div>
-                                <div class="device-info">
-                                    <div class="device-name">伟景130相机</div>
-                                    <div class="device-status online">在线</div>
+                            <div class="device-item diagnosis-device-item">
+                                <div class="device-icon diagnosis-device-icon camera"></div>
+                                <div class="device-info diagnosis-device-info">
+                                    <div class="device-name diagnosis-device-name">伟景130相机</div>
+                                    <div class="device-status diagnosis-device-status online">在线</div>
                                 </div>
                             </div>
-                            <div class="device-item">
-                                <div class="device-icon welder"></div>
-                                <div class="device-info">
-                                    <div class="device-name">XG-DPS500PRO</div>
-                                    <div class="device-status online">在线</div>
+                            <div class="device-item diagnosis-device-item">
+                                <div class="device-icon diagnosis-device-icon welder"></div>
+                                <div class="device-info diagnosis-device-info">
+                                    <div class="device-name diagnosis-device-name">XG-DPS500PRO</div>
+                                    <div class="device-status diagnosis-device-status online">在线</div>
                                 </div>
                             </div>
-                            <div class="device-item">
-                                <div class="device-icon controller"></div>
-                                <div class="device-info">
-                                    <div class="device-name">控制柜</div>
-                                    <div class="device-status online">在线</div>
+                            <div class="device-item diagnosis-device-item">
+                                <div class="device-icon diagnosis-device-icon controller"></div>
+                                <div class="device-info diagnosis-device-info">
+                                    <div class="device-name diagnosis-device-name">控制柜</div>
+                                    <div class="device-status diagnosis-device-status online">在线</div>
                                 </div>
                             </div>
                         </div>
@@ -909,8 +910,8 @@
                 </aside>
                 
                 <!-- 中央诊断区域 -->
-                <section class="visualization">
-                    <div class="visualization-header">
+                <section class="visualization diagnosis-visualization">
+                    <div class="visualization-header diagnosis-visualization-header">
                         <div class="diagnosis-title">
                             <h2>设备健康状态</h2>
                         </div>
@@ -927,55 +928,55 @@
                     </div>
                     
                     <div class="diagnosis-content">
-                        <div class="health-dashboard">
-                            <div class="health-card">
-                                <div class="health-icon cpu"></div>
-                                <div class="health-info">
-                                    <div class="health-title">CPU负载</div>
-                                    <div class="health-value">24.5%</div>
-                                    <div class="health-status normal">正常</div>
+                        <div class="health-dashboard diagnosis-health-dashboard">
+                            <div class="health-card diagnosis-health-card">
+                                <div class="health-icon diagnosis-health-icon cpu"></div>
+                                <div class="health-info diagnosis-health-info">
+                                    <div class="health-title diagnosis-health-title">CPU负载</div>
+                                    <div class="health-value diagnosis-health-value">24.5%</div>
+                                    <div class="health-status diagnosis-health-status normal">正常</div>
                                 </div>
                             </div>
                             
-                            <div class="health-card">
-                                <div class="health-icon memory"></div>
-                                <div class="health-info">
-                                    <div class="health-title">内存使用</div>
-                                    <div class="health-value">68.2%</div>
-                                    <div class="health-status normal">正常</div>
+                            <div class="health-card diagnosis-health-card">
+                                <div class="health-icon diagnosis-health-icon memory"></div>
+                                <div class="health-info diagnosis-health-info">
+                                    <div class="health-title diagnosis-health-title">内存使用</div>
+                                    <div class="health-value diagnosis-health-value">68.2%</div>
+                                    <div class="health-status diagnosis-health-status normal">正常</div>
                                 </div>
                             </div>
                             
-                            <div class="health-card">
-                                <div class="health-icon temperature"></div>
-                                <div class="health-info">
-                                    <div class="health-title">温度</div>
-                                    <div class="health-value">42°C</div>
-                                    <div class="health-status normal">正常</div>
+                            <div class="health-card diagnosis-health-card">
+                                <div class="health-icon diagnosis-health-icon temperature"></div>
+                                <div class="health-info diagnosis-health-info">
+                                    <div class="health-title diagnosis-health-title">温度</div>
+                                    <div class="health-value diagnosis-health-value">42°C</div>
+                                    <div class="health-status diagnosis-health-status normal">正常</div>
                                 </div>
                             </div>
                             
-                            <div class="health-card">
-                                <div class="health-icon network"></div>
-                                <div class="health-info">
-                                    <div class="health-title">网络延迟</div>
-                                    <div class="health-value">12ms</div>
-                                    <div class="health-status normal">正常</div>
+                            <div class="health-card diagnosis-health-card">
+                                <div class="health-icon diagnosis-health-icon network"></div>
+                                <div class="health-info diagnosis-health-info">
+                                    <div class="health-title diagnosis-health-title">网络延迟</div>
+                                    <div class="health-value diagnosis-health-value">12ms</div>
+                                    <div class="health-status diagnosis-health-status normal">正常</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="diagnosis-charts">
-                            <div class="chart-container">
-                                <h3 class="chart-title">CPU负载趋势 (过去1小时)</h3>
-                                <div class="chart-placeholder">
+                            <div class="chart-container diagnosis-chart-container">
+                                <h3 class="chart-title diagnosis-chart-title">CPU负载趋势 (过去1小时)</h3>
+                                <div class="chart-placeholder diagnosis-chart-placeholder">
                                     <!-- 图表占位符 -->
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
+                                    <div class="chart-bar diagnosis-chart-bar"></div>
                                 </div>
                             </div>
                         </div>
@@ -983,56 +984,56 @@
                 </section>
                 
                 <!-- 右侧边栏 -->
-                <aside class="sidebar-right">
+                <aside class="sidebar-right diagnosis-sidebar-right">
                     <div class="section">
                         <h2 class="section-title">报警历史</h2>
-                        <div class="alert-history">
-                            <div class="alert-item">
-                                <div class="alert-time">10:24:05</div>
-                                <div class="alert-type">E-204: 气路供应异常</div>
-                                <div class="alert-level warning">警告</div>
+                        <div class="alert-history diagnosis-alert-history">
+                            <div class="alert-item diagnosis-alert-item">
+                                <div class="alert-time diagnosis-alert-time">10:24:05</div>
+                                <div class="alert-type diagnosis-alert-type">E-204: 气路供应异常</div>
+                                <div class="alert-level diagnosis-alert-level warning">警告</div>
                             </div>
-                            <div class="alert-item">
-                                <div class="alert-time">10:20:18</div>
-                                <div class="alert-type">W-102: 焊接参数偏差</div>
-                                <div class="alert-level info">信息</div>
+                            <div class="alert-item diagnosis-alert-item">
+                                <div class="alert-time diagnosis-alert-time">10:20:18</div>
+                                <div class="alert-type diagnosis-alert-type">W-102: 焊接参数偏差</div>
+                                <div class="alert-level diagnosis-alert-level info">信息</div>
                             </div>
-                            <div class="alert-item">
-                                <div class="alert-time">10:15:32</div>
-                                <div class="alert-type">I-001: 相机校准完成</div>
-                                <div class="alert-level info">信息</div>
+                            <div class="alert-item diagnosis-alert-item">
+                                <div class="alert-time diagnosis-alert-time">10:15:32</div>
+                                <div class="alert-type diagnosis-alert-type">I-001: 相机校准完成</div>
+                                <div class="alert-level diagnosis-alert-level info">信息</div>
                             </div>
-                            <div class="alert-item">
-                                <div class="alert-time">10:10:45</div>
-                                <div class="alert-type">S-301: 系统启动完成</div>
-                                <div class="alert-level info">信息</div>
+                            <div class="alert-item diagnosis-alert-item">
+                                <div class="alert-time diagnosis-alert-time">10:10:45</div>
+                                <div class="alert-type diagnosis-alert-type">S-301: 系统启动完成</div>
+                                <div class="alert-level diagnosis-alert-level info">信息</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="section">
                         <h2 class="section-title">系统资源</h2>
-                        <div class="resource-info">
-                            <div class="resource-item">
-                                <span class="resource-label">存储使用</span>
-                                <div class="resource-bar">
-                                    <div class="resource-fill" style="width: 45%"></div>
+                        <div class="resource-info diagnosis-resource-info">
+                            <div class="resource-item diagnosis-resource-item">
+                                <span class="resource-label diagnosis-resource-label">存储使用</span>
+                                <div class="resource-bar diagnosis-resource-bar">
+                                    <div class="resource-fill diagnosis-resource-fill" style="width: 45%"></div>
                                 </div>
-                                <span class="resource-value">45%</span>
+                                <span class="resource-value diagnosis-resource-value">45%</span>
                             </div>
-                            <div class="resource-item">
-                                <span class="resource-label">网络流量</span>
-                                <div class="resource-bar">
-                                    <div class="resource-fill" style="width: 32%"></div>
+                            <div class="resource-item diagnosis-resource-item">
+                                <span class="resource-label diagnosis-resource-label">网络流量</span>
+                                <div class="resource-bar diagnosis-resource-bar">
+                                    <div class="resource-fill diagnosis-resource-fill" style="width: 32%"></div>
                                 </div>
-                                <span class="resource-value">32%</span>
+                                <span class="resource-value diagnosis-resource-value">32%</span>
                             </div>
-                            <div class="resource-item">
-                                <span class="resource-label">I/O使用率</span>
-                                <div class="resource-bar">
-                                    <div class="resource-fill" style="width: 18%"></div>
+                            <div class="resource-item diagnosis-resource-item">
+                                <span class="resource-label diagnosis-resource-label">I/O使用率</span>
+                                <div class="resource-bar diagnosis-resource-bar">
+                                    <div class="resource-fill diagnosis-resource-fill" style="width: 18%"></div>
                                 </div>
-                                <span class="resource-value">18%</span>
+                                <span class="resource-value diagnosis-resource-value">18%</span>
                             </div>
                         </div>
                     </div>

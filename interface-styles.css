@@ -1,0 +1,899 @@
+/* 任务管理界面样式 */
+/* 电脑版本 */
+#task .task-sidebar-left {
+    /* 复制现有的.sidebar-left样式 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+#task .task-weld-list {
+    /* 复制现有的.weld-list样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#task .task-weld-item {
+    /* 复制现有的.weld-item样式 */
+    background-color: #1e2a42;
+    border-radius: 6px;
+    padding: 0.75rem;
+    border-left: 3px solid #00aaff;
+}
+
+#task .task-weld-header {
+    /* 复制现有的.weld-header样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+#task .task-weld-id {
+    /* 复制现有的.weld-id样式 */
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+#task .task-weld-type {
+    /* 复制现有的.weld-type样式 */
+    font-size: 0.85rem;
+    color: #8a96a8;
+}
+
+#task .task-weld-status {
+    /* 复制现有的.weld-status样式 */
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#task .task-weld-status.active {
+    /* 复制现有的.weld-status.active样式 */
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+#task .task-weld-status.pending {
+    /* 复制现有的.weld-status.pending样式 */
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+#task .task-weld-status.completed {
+    /* 复制现有的.weld-status.completed样式 */
+    background-color: rgba(156, 39, 176, 0.2);
+    color: #9c27b0;
+}
+
+#task .task-control-buttons {
+    /* 复制现有的.control-buttons样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#task .task-control-row {
+    /* 复制现有的.control-row样式 */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+#task .task-control-btn {
+    /* 复制现有的.control-btn样式 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#task .task-control-btn.primary {
+    /* 复制现有的.control-btn.primary样式 */
+    background-color: #00aaff;
+    color: white;
+}
+
+#task .task-control-btn.primary:hover {
+    /* 复制现有的.control-btn.primary:hover样式 */
+    background-color: #0088cc;
+    transform: translateY(-1px);
+}
+
+#task .task-control-btn.secondary {
+    /* 复制现有的.control-btn.secondary样式 */
+    background-color: #1e2a42;
+    color: #e0e6ed;
+    border: 1px solid #2d3b55;
+}
+
+#task .task-control-btn.secondary:hover {
+    /* 复制现有的.control-btn.secondary:hover样式 */
+    background-color: #2d3b55;
+    transform: translateY(-1px);
+}
+
+#task .task-control-btn.danger {
+    /* 复制现有的.control-btn.danger样式 */
+    background-color: #f44336;
+    color: white;
+}
+
+#task .task-control-btn.danger:hover {
+    /* 复制现有的.control-btn.danger:hover样式 */
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+#task .task-visualization {
+    /* 复制现有的.visualization样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #121a2a;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #1e2a42;
+}
+
+#task .task-visualization-header {
+    /* 复制现有的.visualization-header样式 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#task .task-camera-status {
+    /* 复制现有的.camera-status样式 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #8a96a8;
+}
+
+#task .task-coordinate-status {
+    /* 复制现有的.coordinate-status样式 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #8a96a8;
+}
+
+#task .task-visualization-main {
+    /* 复制现有的.visualization-main样式 */
+    flex: 1;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #0a0f1a;
+}
+
+#task .task-welding-image {
+    /* 复制现有的.welding-image样式 */
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#task .task-auto-scanning {
+    /* 复制现有的.auto-scanning样式 */
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+#task .task-project-info {
+    /* 复制现有的.project-info样式 */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #8a96a8;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#task .task-sidebar-right {
+    /* 复制现有的.sidebar-right样式 */
+    overflow-y: auto;
+    padding-left: 0.1rem;
+    max-height: 600px;
+}
+
+#task .task-tcp-coordinates {
+    /* 复制现有的.tcp-coordinates样式 */
+    background-color: #1e2a42;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+#task .task-tcp-item {
+    /* 复制现有的.tcp-item样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#task .task-tcp-label {
+    /* 复制现有的.tcp-label样式 */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a96a8;
+}
+
+#task .task-tcp-values {
+    /* 复制现有的.tcp-values样式 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+#task .task-tcp-value {
+    /* 复制现有的.tcp-value样式 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#task .task-tcp-axis {
+    /* 复制现有的.tcp-axis样式 */
+    font-size: 0.75rem;
+    color: #8a96a8;
+}
+
+#task .task-tcp-num {
+    /* 复制现有的.tcp-num样式 */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+/* 手机版本 */
+.mobile-version #task .task-sidebar-left {
+    /* 复制现有的.mobile-version #task .sidebar-left样式 */
+    order: 1;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.mobile-version #task .task-sidebar-left .section {
+    /* 复制现有的.mobile-version #task .sidebar-left .section样式 */
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+}
+
+.mobile-version #task .task-sidebar-left .section-title {
+    /* 复制现有的.mobile-version #task .sidebar-left .section-title样式 */
+    display: none;
+}
+
+.mobile-version #task .task-control-buttons {
+    /* 复制现有的.mobile-version #task .control-buttons样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #task .task-control-btn {
+    /* 复制现有的.mobile-version #task .control-btn样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
+
+.mobile-version #task .task-control-row {
+    /* 复制现有的.mobile-version #task .control-row样式 */
+    flex: 100%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.mobile-version #task .task-control-row .task-control-btn {
+    /* 复制现有的.mobile-version #task .control-row .control-btn样式 */
+    flex: 1;
+}
+
+.mobile-version #task .task-visualization {
+    /* 复制现有的.mobile-version #task .visualization样式 */
+    order: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    max-height: 350px;
+    overflow: hidden;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.75rem;
+}
+
+.mobile-version #task .task-visualization-header {
+    /* 复制现有的.mobile-version #task .visualization-header样式 */
+    flex-shrink: 0;
+    margin-bottom: 0.75rem;
+}
+
+.mobile-version #task .task-visualization-main {
+    /* 复制现有的.mobile-version #task .visualization-main样式 */
+    flex: 1;
+    min-height: 250px;
+    max-height: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #0a0f1a;
+}
+
+.mobile-version #task .task-welding-image {
+    /* 复制现有的.mobile-version #task .welding-image样式 */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.mobile-version #task .task-project-info {
+    /* 复制现有的.mobile-version #task .project-info样式 */
+    flex-shrink: 0;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* 运动控制界面样式 */
+/* 电脑版本 */
+#motion .motion-sidebar-left {
+    /* 复制现有的.sidebar-left样式 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+#motion .motion-control-panel {
+    /* 复制现有的.control-panel样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#motion .motion-control-group {
+    /* 复制现有的.control-group样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#motion .motion-control-label {
+    /* 复制现有的.control-label样式 */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a96a8;
+}
+
+#motion .motion-jog-controls {
+    /* 复制现有的.jog-controls样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#motion .motion-jog-section {
+    /* 复制现有的.jog-section样式 */
+    background-color: #1e2a42;
+    border-radius: 6px;
+    padding: 0.5rem;
+    border: 1px solid #2d3b55;
+}
+
+#motion .motion-jog-section-title {
+    /* 复制现有的.jog-section-title样式 */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #00aaff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#motion .motion-jog-axis {
+    /* 复制现有的.jog-axis样式 */
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+#motion .motion-jog-buttons {
+    /* 复制现有的.jog-buttons样式 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#motion .motion-jog-input {
+    /* 复制现有的.jog-input样式 */
+    width: 80px;
+    padding: 0.5rem;
+    background-color: #121a2a;
+    border: 1px solid #2d3b55;
+    border-radius: 4px;
+    color: #e0e6ed;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#motion .motion-jog-btn {
+    /* 复制现有的.jog-btn样式 */
+    width: 50px;
+    height: 40px;
+    border: 2px solid #2d3b55;
+    border-radius: 6px;
+    background-color: #1e2a42;
+    color: #00aaff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#motion .motion-speed-control {
+    /* 复制现有的.speed-control样式 */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#motion .motion-speed-label {
+    /* 复制现有的.speed-label样式 */
+    font-size: 0.8rem;
+    color: #8a96a8;
+    min-width: 30px;
+}
+
+#motion .motion-speed-slider {
+    /* 复制现有的.speed-slider样式 */
+    flex: 1;
+    height: 6px;
+    background: #1e2a42;
+    outline: none;
+    border-radius: 3px;
+}
+
+#motion .motion-speed-value {
+    /* 复制现有的.speed-value样式 */
+    font-size: 0.9rem;
+    color: #e0e6ed;
+    margin-top: 0.5rem;
+}
+
+/* 手机版本 */
+.mobile-version #motion .motion-sidebar-left {
+    /* 类似task界面的手机版本样式 */
+    order: 1;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.mobile-version #motion .motion-control-panel {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #motion .motion-jog-controls {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #motion .motion-jog-section {
+    /* 类似task界面的手机版本样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
+
+/* 模板管理界面样式 */
+/* 电脑版本 */
+#template .template-sidebar-left {
+    /* 复制现有的.sidebar-left样式 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+#template .template-list {
+    /* 复制现有的.template-list样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#template .template-item {
+    /* 复制现有的.template-item样式 */
+    background-color: #1e2a42;
+    border-radius: 6px;
+    padding: 1rem;
+    border-left: 3px solid #2d3b55;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#template .template-item:hover {
+    /* 复制现有的.template-item:hover样式 */
+    background-color: #2d3b55;
+    transform: translateX(2px);
+}
+
+#template .template-item.active {
+    /* 复制现有的.template-item.active样式 */
+    background-color: #1e2a42;
+    border-left-color: #00aaff;
+}
+
+#template .template-header {
+    /* 复制现有的.template-header样式 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#template .template-name {
+    /* 复制现有的.template-name样式 */
+    font-weight: 600;
+    color: #e0e6ed;
+}
+
+#template .template-status {
+    /* 复制现有的.template-status样式 */
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+#template .template-status.selected {
+    /* 复制现有的.template-status.selected样式 */
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+/* 手机版本 */
+.mobile-version #template .template-sidebar-left {
+    /* 类似task界面的手机版本样式 */
+    order: 1;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.mobile-version #template .template-list {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #template .template-item {
+    /* 类似task界面的手机版本样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
+
+/* 工艺设置界面样式 */
+/* 电脑版本 */
+#process .process-sidebar-left {
+    /* 复制现有的.sidebar-left样式 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+#process .process-library {
+    /* 复制现有的.process-library样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#process .process-library-group {
+    /* 复制现有的.library-group样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#process .process-library-title {
+    /* 复制现有的.library-title样式 */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a96a8;
+}
+
+#process .process-library-items {
+    /* 复制现有的.library-items样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#process .process-library-item {
+    /* 复制现有的.library-item样式 */
+    padding: 0.75rem 1rem;
+    background-color: #1e2a42;
+    border: none;
+    border-radius: 6px;
+    color: #8a96a8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+#process .process-library-item:hover {
+    /* 复制现有的.library-item:hover样式 */
+    background-color: #2d3b55;
+    color: #e0e6ed;
+}
+
+#process .process-library-item.active {
+    /* 复制现有的.library-item.active样式 */
+    background-color: #00aaff;
+    color: white;
+}
+
+/* 手机版本 */
+.mobile-version #process .process-sidebar-left {
+    /* 类似task界面的手机版本样式 */
+    order: 1;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.mobile-version #process .process-library {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #process .process-library-items {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #process .process-library-item {
+    /* 类似task界面的手机版本样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
+
+/* 系统诊断界面样式 */
+/* 电脑版本 */
+#diagnosis .diagnosis-sidebar-left {
+    /* 复制现有的.sidebar-left样式 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+#diagnosis .diagnosis-menu {
+    /* 复制现有的.diagnosis-menu样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#diagnosis .diagnosis-item {
+    /* 复制现有的.diagnosis-item样式 */
+    padding: 0.75rem 1rem;
+    background-color: #1e2a42;
+    border: none;
+    border-radius: 6px;
+    color: #8a96a8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#diagnosis .diagnosis-item:hover {
+    /* 复制现有的.diagnosis-item:hover样式 */
+    background-color: #2d3b55;
+    color: #e0e6ed;
+}
+
+#diagnosis .diagnosis-item.active {
+    /* 复制现有的.diagnosis-item.active样式 */
+    background-color: #00aaff;
+    color: white;
+}
+
+#diagnosis .diagnosis-device-list {
+    /* 复制现有的.device-list样式 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#diagnosis .diagnosis-device-item {
+    /* 复制现有的.device-item样式 */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #1e2a42;
+    border-radius: 6px;
+}
+
+#diagnosis .diagnosis-device-icon {
+    /* 复制现有的.device-icon样式 */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2d3b55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00aaff;
+    font-size: 1.2rem;
+}
+
+#diagnosis .diagnosis-device-info {
+    /* 复制现有的.device-info样式 */
+    flex: 1;
+}
+
+#diagnosis .diagnosis-device-name {
+    /* 复制现有的.device-name样式 */
+    font-weight: 600;
+    color: #e0e6ed;
+    margin-bottom: 0.25rem;
+}
+
+#diagnosis .diagnosis-device-status {
+    /* 复制现有的.device-status样式 */
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+#diagnosis .diagnosis-device-status.online {
+    /* 复制现有的.device-status.online样式 */
+    color: #4caf50;
+}
+
+#diagnosis .diagnosis-device-status.offline {
+    /* 复制现有的.device-status.offline样式 */
+    color: #f44336;
+}
+
+/* 手机版本 */
+.mobile-version #diagnosis .diagnosis-sidebar-left {
+    /* 类似task界面的手机版本样式 */
+    order: 1;
+    background-color: #121a2a;
+    border-radius: 8px;
+    border: 1px solid #1e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.mobile-version #diagnosis .diagnosis-menu {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #diagnosis .diagnosis-item {
+    /* 类似task界面的手机版本样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
+
+.mobile-version #diagnosis .diagnosis-device-list {
+    /* 类似task界面的手机版本样式 */
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-version #diagnosis .diagnosis-device-item {
+    /* 类似task界面的手机版本样式 */
+    flex: 1;
+    min-width: 110px;
+    max-width: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 36px;
+}
