@@ -25,7 +25,7 @@ body {
 
 /* 手机版日志区域优化 */
 .mobile-version .log-section {
-    max-height: 110px; /* 限制日志区域高度，防止占用过多屏幕空间 */
+    max-height: 100px; /* 限制日志区域高度，防止占用过多屏幕空间 */
     overflow-y: auto; /* 启用垂直滚动 */
     width: 100%; /* 确保占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
@@ -43,7 +43,7 @@ body {
     flex-direction: column; /* 垂直排列页脚元素 */
     gap: 0.75rem; /* 设置元素间距 */
     padding: 0.75rem; /* 设置内边距 */
-    padding-bottom: 80px; /* 为底部导航栏留出空间 */
+    padding-bottom: 60px; /* 为底部导航栏留出空间 */
     width: 100%; /* 确保占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
 }
@@ -71,7 +71,7 @@ body {
     padding: 0.75rem 1rem; /* 设置内边距 */
     flex-direction: column; /* 垂直排列头部元素 */
     align-items: flex-start; /* 左对齐 */
-    gap: 0.75rem; /* 设置元素间距 */
+    gap: 0.2rem; /* 设置元素间距 */
 }
 
 .mobile-version .header-left {
@@ -81,7 +81,7 @@ body {
 }
 
 .mobile-version .logo {
-    font-size: 1.25rem; /* 调整logo大小 */
+    font-size: 1.2rem; /* 调整logo大小 */
 }
 
 .mobile-version .header-center {
@@ -116,9 +116,9 @@ body {
 
 .mobile-version .nav-btn {
     flex-direction: column; /* 垂直排列导航图标和文本 */
-    gap: 0.25rem; /* 设置图标与文本间距 */
+    gap: 0.2rem; /* 设置图标与文本间距 */
     padding: 0.5rem; /* 设置内边距 */
-    font-size: 0.8rem; /* 缩小字体 */
+    font-size: 0.5rem; /* 缩小字体 */
 }
 
 .mobile-version .nav-btn span {
@@ -130,7 +130,7 @@ body {
     position: absolute; /* 绝对定位 */
     top: 1rem; /* 距离顶部1rem */
     right: 1rem; /* 距离右侧1rem */
-    padding: 0.5rem; /* 设置内边距 */
+    padding: 0.1rem; /* 设置内边距 */
 }
 
 /* 手机版主要内容区域优化 */
@@ -145,11 +145,11 @@ body {
 .mobile-version .main-content {
     grid-template-columns: 1fr; /* 单列布局 */
     grid-template-rows: auto 1fr auto; /* 三行布局 */
-    gap: 0.75rem; /* 设置网格间距 */
-    padding: 0.75rem; /* 设置内边距 */
+    gap: 0.5rem; /* 设置网格间距 */
+    padding: 0.5rem; /* 设置内边距 */
     width: 100%; /* 占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
-    min-height: calc(80vh - 180px); /* 设置最小高度 */
+    min-height: calc(100vh - 190px); /* 设置最小高度 */
     overflow: hidden; /* 隐藏溢出内容 */
 }
 
@@ -167,7 +167,7 @@ body {
     background-color: #121a2a; /* 设置背景色 */
     border-radius: 8px; /* 设置圆角 */
     border: 1px solid #1e2a42; /* 设置边框 */
-    padding: 0.5rem; /* 设置内边距 */
+    padding: 0.35rem; /* 设置内边距 */
     overflow: hidden; /* 隐藏溢出内容 */
 }
 
@@ -238,7 +238,7 @@ body {
     flex: 1; /* 占据剩余空间 */
     display: flex; /* 使用flex布局 */
     flex-direction: column; /* 垂直排列元素 */
-    min-height: 300px; /* 设置最小高度 */
+    min-height: 200px; /* 设置最小高度 */
     max-height: 350px; /* 限制最大高度 */
     overflow: hidden; /* 隐藏溢出内容 */
     background-color: #121a2a; /* 设置背景色 */
@@ -344,7 +344,7 @@ body {
     width: 100%; /* 占满容器宽度 */
     min-height: 200px; /* 设置最小高度 */
     max-height: 300px; /* 限制最大高度 */
-    overflow: hidden; /* 隐藏溢出内容 */
+    overflow: auto; /* 隐藏溢出内容 */
     display: flex; /* 使用flex布局 */
     align-items: center; /* 垂直居中 */
     justify-content: center; /* 水平居中 */
@@ -661,14 +661,14 @@ body {
 }
 
 .status-label {
-    font-size: 0.75rem; /* 设置状态标签字体大小 */
+    font-size: 0.5rem; /* 设置状态标签字体大小 */
     color: #8a96a8; /* 设置状态标签颜色 */
     text-transform: uppercase; /* 大写转换 */
     letter-spacing: 0.5px; /* 设置字间距 */
 }
 
 .status-value {
-    font-size: 1rem; /* 设置状态值字体大小 */
+    font-size: 0.8rem; /* 设置状态值字体大小 */
     font-weight: 600; /* 设置状态值字重 */
 }
 
@@ -968,7 +968,7 @@ body {
     gap: 1rem; /* 设置网格间距 */
     padding: 1rem; /* 设置内边距 */
     flex: 1; /* 占据剩余空间 */
-    overflow: visible; /* 显示溢出内容 */
+    overflow: auto; /* 显示溢出内容 */
     min-height: 0; /* 允许内容收缩 */
 }
 
@@ -2517,7 +2517,7 @@ body {
     background-color: rgba(76, 175, 80, 0.2);
     color: #4caf50;
     padding: 0.5rem 1rem;
-    border-radius: 6px;
+    border-radius: 5px;
     font-size: 0.9rem;
 }
 
