@@ -16,6 +16,10 @@
     {
       "src": "welding-scene.svg",
       "use": "@vercel/static"
+    },
+    {
+      "src": "interface-styles.css",
+      "use": "@vercel/static"
     }
   ]
 }
