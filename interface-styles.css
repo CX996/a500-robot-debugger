@@ -1,10 +1,66 @@
+/* 基础样式 - 所有标签页通用 */
+/* 侧边栏基础样式 */
+#task .task-sidebar-left,
+#motion .motion-sidebar-left,
+#template .template-sidebar-left,
+#process .process-sidebar-left,
+#diagnosis .diagnosis-sidebar-left {
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    max-height: 600px;
+}
+
+/* 可视化区域基础样式 */
+#task .task-visualization,
+#motion .motion-visualization,
+#template .template-visualization,
+#process .process-visualization,
+#diagnosis .diagnosis-visualization {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #121a2a;
+    border-radius: 8px;
+    padding: 0.75rem;
+    border: 1px solid #1e2a42;
+}
+
+/* 可视化头部基础样式 */
+#task .task-visualization-header,
+#motion .motion-visualization-header,
+#template .template-visualization-header,
+#process .process-visualization-header,
+#diagnosis .diagnosis-visualization-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* 可视化主体基础样式 */
+#task .task-visualization-main,
+#motion .motion-visualization-main,
+#template .template-visualization-main,
+#process .process-visualization-main,
+#diagnosis .diagnosis-visualization-main {
+    flex: 1;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #0a0f1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* 任务管理界面样式 */
 /* 电脑版本 */
 #task .task-sidebar-left {
     /* 复制现有的.sidebar-left样式 */
     overflow-y: auto;
     padding-right: 0.5rem;
-    max-height: 300px;
+    max-height: 600px;
 }
 
 #task .task-weld-list {
@@ -73,8 +129,12 @@
     /* 复制现有的.control-buttons样式 */
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
+
+/* #task > * {
+    outline: 2px solid red;
+} */
 
 #task .task-control-row {
     /* 复制现有的.control-row样式 */
@@ -89,7 +149,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 1rem;
+    padding: 0.5rem 0.75rem;     /* ← 核心 */ */
     border: none;
     border-radius: 6px;
     font-weight: 500;
@@ -138,7 +198,7 @@
     /* 复制现有的.visualization样式 */
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 1rem;
     background-color: #121a2a;
     border-radius: 8px;
     padding: 1rem;
@@ -151,15 +211,15 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.1rem;
+    gap: 1rem;
 }
 
 #task .task-camera-status {
     /* 复制现有的.camera-status样式 */
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.7rem;
+    gap: 0.5rem;
+    font-size: 0.9rem;
     color: #8a96a8;
 }
 
@@ -267,110 +327,40 @@
 }
 
 /* 手机版本 */
-.mobile-version #task .task-sidebar-left {
-    /* 复制现有的.mobile-version #task .sidebar-left样式 */
+/* 任务管理界面移动端样式 */
+.mobile-version #task .sidebar-right,
+.mobile-version #task .process-params,
+.mobile-version #task .alert-item,
+.mobile-version #task .weld-list {
+    display: none; /* 隐藏任务页面的非核心内容，简化移动端布局 */
+}
+
+.mobile-version #task .sidebar-left {
     order: 1;
     background-color: #121a2a;
     border-radius: 8px;
     border: 1px solid #1e2a42;
-    padding: 0.rem;
+    padding: 0.5rem;
     overflow: hidden;
+    
+    align-self: flex-start;
+    max-height: 130px; /* 限制侧边栏高度 */
 }
 
-.mobile-version #task .task-sidebar-left .section {
-    /* 复制现有的.mobile-version #task .sidebar-left .section样式 */
+.mobile-version #task .sidebar-left .section {
     margin-bottom: 0;
     padding: 0;
     border: none;
 }
 
-.mobile-version #task .task-sidebar-left .section-title {
-    /* 复制现有的.mobile-version #task .sidebar-left .section-title样式 */
+.mobile-version #task .sidebar-left .section-title {
     display: none;
 }
 
-.mobile-version #task .task-control-buttons {
-    /* 复制现有的.mobile-version #task .control-buttons样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #task .task-control-btn {
-    /* 复制现有的.mobile-version #task .control-btn样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 30px;
-}
-
-.mobile-version #task .task-control-row {
-    /* 复制现有的.mobile-version #task .control-row样式 */
-    flex: 100%;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: space-between;
-}
-
-.mobile-version #task .task-control-row .task-control-btn {
-    /* 复制现有的.mobile-version #task .control-row .control-btn样式 */
-    flex: 1;
-}
-
-.mobile-version #task .task-visualization {
-    /* 复制现有的.mobile-version #task .visualization样式 */
+.mobile-version #task .visualization {
     order: 2;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     min-height: 300px;
     max-height: 350px;
-    overflow: hidden;
-    background-color: #121a2a;
-    border-radius: 8px;
-    border: 1px solid #1e2a42;
-    padding: 0.5rem;
-}
-
-.mobile-version #task .task-visualization-header {
-    /* 复制现有的.mobile-version #task .visualization-header样式 */
-    flex-shrink: 0;
-    margin-bottom: 0.1rem;
-}
-
-.mobile-version #task .task-visualization-main {
-    /* 复制现有的.mobile-version #task .visualization-main样式 */
-    flex: 1;
-    min-height: 250px;
-    max-height: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 6px;
-    background-color: #0a0f1a;
-}
-
-.mobile-version #task .task-welding-image {
-    /* 复制现有的.mobile-version #task .welding-image样式 */
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.mobile-version #task .task-project-info {
-    /* 复制现有的.mobile-version #task .project-info样式 */
-    flex-shrink: 0;
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
 }
 
 /* 运动控制界面样式 */
@@ -501,43 +491,12 @@
 
 /* 手机版本 */
 .mobile-version #motion .motion-sidebar-left {
-    /* 类似task界面的手机版本样式 */
     order: 1;
     background-color: #121a2a;
     border-radius: 8px;
     border: 1px solid #1e2a42;
     padding: 0.5rem;
     overflow: hidden;
-}
-
-.mobile-version #motion .motion-control-panel {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #motion .motion-jog-controls {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #motion .motion-jog-section {
-    /* 类似task界面的手机版本样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 36px;
 }
 
 /* 模板管理界面样式 */
@@ -612,34 +571,12 @@
 
 /* 手机版本 */
 .mobile-version #template .template-sidebar-left {
-    /* 类似task界面的手机版本样式 */
     order: 1;
     background-color: #121a2a;
     border-radius: 8px;
     border: 1px solid #1e2a42;
     padding: 0.5rem;
     overflow: hidden;
-}
-
-.mobile-version #template .template-list {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #template .template-item {
-    /* 类似task界面的手机版本样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 36px;
 }
 
 /* 工艺设置界面样式 */
@@ -705,43 +642,12 @@
 
 /* 手机版本 */
 .mobile-version #process .process-sidebar-left {
-    /* 类似task界面的手机版本样式 */
     order: 1;
     background-color: #121a2a;
     border-radius: 8px;
     border: 1px solid #1e2a42;
     padding: 0.5rem;
     overflow: hidden;
-}
-
-.mobile-version #process .process-library {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #process .process-library-items {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #process .process-library-item {
-    /* 类似task界面的手机版本样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 36px;
 }
 
 /* 系统诊断界面样式 */
@@ -847,7 +753,6 @@
 
 /* 手机版本 */
 .mobile-version #diagnosis .diagnosis-sidebar-left {
-    /* 类似task界面的手机版本样式 */
     order: 1;
     background-color: #121a2a;
     border-radius: 8px;
@@ -855,45 +760,8 @@
     padding: 0.5rem;
     overflow: hidden;
 }
-
-.mobile-version #diagnosis .diagnosis-menu {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
+ e2a42;
+    padding: 0.5rem;
+    overflow: hidden;
 }
-
-.mobile-version #diagnosis .diagnosis-item {
-    /* 类似task界面的手机版本样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 36px;
-}
-
-.mobile-version #diagnosis .diagnosis-device-list {
-    /* 类似task界面的手机版本样式 */
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-version #diagnosis .diagnosis-device-item {
-    /* 类似task界面的手机版本样式 */
-    flex: 1;
-    min-width: 110px;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    height: auto;
-    min-height: 36px;
-}
+ 

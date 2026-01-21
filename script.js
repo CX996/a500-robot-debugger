@@ -1,3 +1,4 @@
+// ===== UI Interaction =====
 // 标签页切换功能
 const navBtns = document.querySelectorAll('.nav-btn');
 const tabPanes = document.querySelectorAll('.tab-pane');
@@ -54,6 +55,66 @@ controlBtns.forEach(btn => {
     });
 });
 
+// 速度滑块联动功能
+function initSpeedControl() {
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    
+    if (speedSlider && speedValue) {
+        // 初始化显示
+        speedValue.textContent = `当前速度: ${speedSlider.value}%`;
+        
+        // 添加滑块事件监听
+        speedSlider.addEventListener('input', () => {
+            speedValue.textContent = `当前速度: ${speedSlider.value}%`;
+        });
+    }
+}
+
+// 初始化速度控制
+initSpeedControl();
+
+// 响应式侧边栏处理
+function handleResponsiveLayout() {
+    const mainContent = document.querySelector('.main-content');
+    const width = window.innerWidth;
+    
+    if (width <= 1200) {
+        mainContent.style.gridTemplateColumns = '1fr';
+        mainContent.style.gridTemplateRows = 'auto auto auto';
+    } else {
+        mainContent.style.gridTemplateColumns = '300px 1fr 300px';
+        mainContent.style.gridTemplateRows = '1fr';
+    }
+}
+
+// 初始化响应式布局
+handleResponsiveLayout();
+
+// 监听窗口大小变化
+window.addEventListener('resize', handleResponsiveLayout);
+
+// 紧急停止按钮功能（模拟）
+const emergencyStop = () => {
+    console.log('执行紧急停止操作！');
+    // 这里可以添加实际的紧急停止逻辑
+    alert('紧急停止已触发！');
+};
+
+// 为危险按钮添加紧急停止确认
+const dangerBtns = document.querySelectorAll('.control-btn.danger');
+dangerBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if (!confirm('确定要执行此操作吗？这将强制终止当前任务！')) {
+            e.preventDefault();
+            return false;
+        }
+        // 执行紧急停止
+        emergencyStop();
+    });
+});
+
+// ===== Mock Data =====
 // 模拟实时数据更新
 function updateRealTimeData() {
     // 更新TCP坐标
@@ -120,25 +181,6 @@ function updateRealTimeData() {
     }
 }
 
-// 速度滑块联动功能
-function initSpeedControl() {
-    const speedSlider = document.getElementById('speedSlider');
-    const speedValue = document.getElementById('speedValue');
-    
-    if (speedSlider && speedValue) {
-        // 初始化显示
-        speedValue.textContent = `当前速度: ${speedSlider.value}%`;
-        
-        // 添加滑块事件监听
-        speedSlider.addEventListener('input', () => {
-            speedValue.textContent = `当前速度: ${speedSlider.value}%`;
-        });
-    }
-}
-
-// 初始化速度控制
-initSpeedControl();
-
 // 定时更新数据，每2秒一次
 setInterval(updateRealTimeData, 2000);
 
@@ -192,46 +234,7 @@ function addNewLogEntry() {
 // 每5秒添加一条新日志
 setInterval(addNewLogEntry, 5000);
 
-// 响应式侧边栏处理
-function handleResponsiveLayout() {
-    const mainContent = document.querySelector('.main-content');
-    const width = window.innerWidth;
-    
-    if (width <= 1200) {
-        mainContent.style.gridTemplateColumns = '1fr';
-        mainContent.style.gridTemplateRows = 'auto auto auto';
-    } else {
-        mainContent.style.gridTemplateColumns = '300px 1fr 300px';
-        mainContent.style.gridTemplateRows = '1fr';
-    }
-}
-
-// 初始化响应式布局
-handleResponsiveLayout();
-
-// 监听窗口大小变化
-window.addEventListener('resize', handleResponsiveLayout);
-
-// 紧急停止按钮功能（模拟）
-const emergencyStop = () => {
-    console.log('执行紧急停止操作！');
-    // 这里可以添加实际的紧急停止逻辑
-    alert('紧急停止已触发！');
-};
-
-// 为危险按钮添加紧急停止确认
-const dangerBtns = document.querySelectorAll('.control-btn.danger');
-dangerBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        if (!confirm('确定要执行此操作吗？这将强制终止当前任务！')) {
-            e.preventDefault();
-            return false;
-        }
-        // 执行紧急停止
-        emergencyStop();
-    });
-});
-
+// ===== Permission =====
 // 等待DOM加载完成后执行
 window.addEventListener('DOMContentLoaded', () => {
     // 权限管理 - 三级权限：technician（技术人员）、engineer（工程师）、developer（开发者）

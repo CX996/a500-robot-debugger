@@ -32,7 +32,7 @@ body {
 }
 
 .mobile-version .log-content {
-    max-height: 150px; /* 限制日志内容高度 */
+    max-height: 120px; /* 限制日志内容高度 */
     overflow-y: auto; /* 启用垂直滚动 */
     width: 100%; /* 确保占满容器宽度 */
     font-size: 0.85rem; /* 缩小字体以显示更多内容 */
@@ -41,8 +41,8 @@ body {
 
 .mobile-version .footer {
     flex-direction: column; /* 垂直排列页脚元素 */
-    gap: 0.75rem; /* 设置元素间距 */
-    padding: 0.75rem; /* 设置内边距 */
+    gap: 0.5rem; /* 设置元素间距 */
+    padding: 0.5rem; /* 设置内边距 */
     padding-bottom: 60px; /* 为底部导航栏留出空间 */
     width: 100%; /* 确保占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
@@ -71,7 +71,12 @@ body {
     padding: 0.75rem 1rem; /* 设置内边距 */
     flex-direction: column; /* 垂直排列头部元素 */
     align-items: flex-start; /* 左对齐 */
-    gap: 0.2rem; /* 设置元素间距 */
+    gap: 0.75rem; /* 设置元素间距 */
+
+    /* 不被父容器控制 */
+    align-self: flex-start;
+    max-height: 130px; /* 限制侧边栏高度 */
+    
 }
 
 .mobile-version .header-left {
@@ -81,11 +86,11 @@ body {
 }
 
 .mobile-version .logo {
-    font-size: 1.2rem; /* 调整logo大小 */
+    font-size: 1.1rem; /* 调整logo大小 */
 }
 
 .mobile-version .header-center {
-    gap: 1rem; /* 设置状态项间距 */
+    gap: 0.1rem; /* 设置状态项间距 */
     width: 100%; /* 占满屏幕宽度 */
     justify-content: space-between; /* 两端对齐状态项 */
 }
@@ -118,7 +123,7 @@ body {
     flex-direction: column; /* 垂直排列导航图标和文本 */
     gap: 0.2rem; /* 设置图标与文本间距 */
     padding: 0.5rem; /* 设置内边距 */
-    font-size: 0.5rem; /* 缩小字体 */
+    font-size: 0.54rem; /* 缩小字体 */
 }
 
 .mobile-version .nav-btn span {
@@ -130,14 +135,14 @@ body {
     position: absolute; /* 绝对定位 */
     top: 1rem; /* 距离顶部1rem */
     right: 1rem; /* 距离右侧1rem */
-    padding: 0.1rem; /* 设置内边距 */
+    padding: 0.5rem; /* 设置内边距 */
 }
 
 /* 手机版主要内容区域优化 */
 .mobile-version .tab-content {
     flex: 1; /* 占据剩余空间 */
     overflow-y: none; /* 启用垂直滚动 */
-    padding-bottom: 80px; /* 为底部导航栏留出空间 */
+    padding-bottom: 10px; /* 为底部导航栏留出空间 */
     width: 100%; /* 占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
 }
@@ -149,133 +154,8 @@ body {
     padding: 0.5rem; /* 设置内边距 */
     width: 100%; /* 占满屏幕宽度 */
     box-sizing: border-box; /* 使用border-box计算盒模型 */
-    min-height: calc(100vh - 190px); /* 设置最小高度 */
+    min-height: calc(82vh - 100px); /* 设置最小高度 */
     overflow: hidden; /* 隐藏溢出内容 */
-}
-
-/* 手机版隐藏不必要的内容 */
-.mobile-version #task .sidebar-right,
-.mobile-version #task .process-params,
-.mobile-version #task .alert-item,
-.mobile-version #task .weld-list {
-    display: none; /* 隐藏任务页面的非核心内容，简化移动端布局 */
-}
-
-/* 手机版优化左侧边栏 - 只显示控制按钮 */
-.mobile-version #task .sidebar-left {
-    order: 1; /* 调整显示顺序 */
-    background-color: #121a2a; /* 设置背景色 */
-    border-radius: 8px; /* 设置圆角 */
-    border: 1px solid #1e2a42; /* 设置边框 */
-    padding: 0.35rem; /* 设置内边距 */
-    overflow: hidden; /* 隐藏溢出内容 */
-}
-
-.mobile-version #task .sidebar-left .section {
-    margin-bottom: 0; /* 去除底部外边距 */
-    padding: 0; /* 去除内边距 */
-    border: none; /* 去除边框 */
-}
-
-.mobile-version #task .sidebar-left .section-title {
-    display: none; /* 隐藏侧边栏标题，节省空间 */
-}
-
-/* 手机版优化控制按钮 */
-.mobile-version #task .control-buttons {
-    display: flex; /* 使用flex布局 */
-    gap: 0.5rem; /* 设置按钮间距 */
-    flex-wrap: wrap; /* 允许换行 */
-    padding: 0; /* 去除内边距 */
-    margin: 0; /* 去除外边距 */
-}
-
-.mobile-version #task .control-btn {
-    flex: 1; /* 平均分配宽度 */
-    min-width: 110px; /* 设置最小宽度 */
-    max-width: none; /* 不限制最大宽度 */
-    padding: 0.5rem 0.75rem; /* 设置内边距 */
-    font-size: 0.85rem; /* 调整字体大小 */
-    gap: 0.5rem; /* 设置图标与文本间距 */
-    height: auto; /* 自动高度 */
-    min-height: 36px; /* 设置最小高度，确保足够的点击区域 */
-}
-
-.mobile-version #task .control-row {
-    flex: 100%; /* 占满整行 */
-    display: flex; /* 使用flex布局 */
-    gap: 0.5rem; /* 设置按钮间距 */
-    justify-content: space-between; /* 两端对齐 */
-}
-
-.mobile-version #task .control-row .control-btn {
-    flex: 1; /* 平均分配宽度 */
-}
-
-/* 手机版优化底部日志区域 */
-.mobile-version #task .footer {
-    padding: 0.3rem; /* 设置内边距 */
-}
-
-.mobile-version #task .log-section {
-    max-height: 100px; /* 限制日志区域高度 */
-    overflow-y: auto; /* 启用垂直滚动 */
-}
-
-.mobile-version #task .log-content {
-    max-height: 100px; /* 限制日志内容高度 */
-    font-size: 0.8rem; /* 缩小字体 */
-}
-
-.mobile-version #task .log-item {
-    line-height: 1.0; /* 调整行高 */
-    margin-bottom: 0.25rem; /* 设置日志项间距 */
-}
-
-/* 手机版图像显示区域优化 */
-.mobile-version #task .visualization {
-    order: 2; /* 调整显示顺序 */
-    flex: 1; /* 占据剩余空间 */
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直排列元素 */
-    min-height: 200px; /* 设置最小高度 */
-    max-height: 350px; /* 限制最大高度 */
-    overflow: hidden; /* 隐藏溢出内容 */
-    background-color: #121a2a; /* 设置背景色 */
-    border-radius: 8px; /* 设置圆角 */
-    border: 1px solid #1e2a42; /* 设置边框 */
-    padding: 0.75rem; /* 设置内边距 */
-}
-
-.mobile-version #task .visualization-header {
-    flex-shrink: 0; /* 防止头部被压缩 */
-    margin-bottom: 0.75rem; /* 设置底部外边距 */
-}
-
-.mobile-version #task .visualization-main {
-    flex: 1; /* 占据剩余空间 */
-    min-height: 250px; /* 设置最小高度 */
-    max-height: none; /* 不限制最大高度 */
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-    overflow: hidden; /* 隐藏溢出内容 */
-    border-radius: 6px; /* 设置圆角 */
-    background-color: #0a0f1a; /* 设置背景色 */
-}
-
-.mobile-version #task .welding-image {
-    width: 100%; /* 占满容器宽度 */
-    height: 100%; /* 占满容器高度 */
-    object-fit: contain; /* 保持图像比例 */
-    max-width: 100%; /* 限制最大宽度 */
-    max-height: 100%; /* 限制最大高度 */
-}
-
-.mobile-version #task .project-info {
-    flex-shrink: 0; /* 防止被压缩 */
-    margin-top: 0.75rem; /* 设置顶部外边距 */
-    font-size: 0.85rem; /* 调整字体大小 */
 }
 
 /* 手机版优化模态框显示 */
@@ -308,8 +188,8 @@ body {
 }
 
 .mobile-version .section-title {
-    font-size: 0.8rem; /* 设置标题字体大小 */
-    margin-bottom: 0.75rem; /* 设置底部外边距 */
+    font-size: 0.75rem; /* 设置标题字体大小 */
+    margin-bottom: 0.5rem; /* 设置底部外边距 */
 }
 
 /* 特定标题优化 */
@@ -331,7 +211,9 @@ body {
 /* 可视化区域优化 */
 .mobile-version .visualization {
     gap: 0.75rem; /* 设置元素间距 */
-    padding: 0.75rem; /* 设置内边距 */
+    padding: 0.75rem; /* 设置内边距 */    
+    align-items: self-start; /* 垂直居中 */    
+    max-height: 100px; /* 限制侧边栏高度 */
 }
 
 .mobile-version .visualization-header {
@@ -342,9 +224,9 @@ body {
 
 .mobile-version .visualization-main {
     width: 100%; /* 占满容器宽度 */
-    min-height: 200px; /* 设置最小高度 */
-    max-height: 300px; /* 限制最大高度 */
-    overflow: auto; /* 隐藏溢出内容 */
+    min-height: 150px; /* 设置最小高度 */
+    max-height: 150px; /* 限制最大高度 */
+    overflow: hidden; /* 隐藏溢出内容 */
     display: flex; /* 使用flex布局 */
     align-items: center; /* 垂直居中 */
     justify-content: center; /* 水平居中 */
@@ -461,8 +343,8 @@ body {
 .mobile-version .param-btn,
 .mobile-version .alert-btn,
 .mobile-version .jog-btn {
-    min-height: 44px; /* 设置最小高度，确保足够的点击区域 */
-    min-width: 44px; /* 设置最小宽度，确保足够的点击区域 */
+    min-height: 24px; /* 设置最小高度，确保足够的点击区域 */
+    min-width: 34px; /* 设置最小宽度，确保足够的点击区域 */
     padding: 0.75rem 1rem; /* 设置内边距 */
 }
 
@@ -477,7 +359,7 @@ body {
 }
 
 .mobile-version .control-btn {
-    font-size: 0.9rem; /* 调整按钮字体大小 */
+    font-size: 0.5rem; /* 调整按钮字体大小 */
 }
 
 /* 运动控制优化 */
@@ -490,7 +372,7 @@ body {
 .mobile-version .jog-buttons {
     flex-direction: row; /* 水平排列运动按钮 */
     justify-content: space-between; /* 两端对齐 */
-    gap: 0.5rem; /* 设置按钮间距 */
+    gap: 0.1rem; /* 设置按钮间距 */
 }
 
 /* 工艺设置优化 */
@@ -574,43 +456,7 @@ body {
 
 
 
-/* 任务标签页可视化区域特殊优化 */
-.mobile-version #task .visualization {
-    order: 2; /* 调整显示顺序 */
-    flex: 1; /* 占据剩余空间 */
-    display: flex; /* 使用flex布局 */
-    flex-direction: column; /* 垂直排列元素 */
-    min-height: 300px; /* 设置最小高度 */
-    max-height: 350px; /* 限制最大高度 */
-    overflow: hidden; /* 隐藏溢出内容 */
-    background-color: #121a2a; /* 设置背景色 */
-    border-radius: 8px; /* 设置圆角 */
-    border: 1px solid #1e2a42; /* 设置边框 */
-    padding: 0.75rem; /* 设置内边距 */
-}
-
-.mobile-version #task .visualization-header {
-    flex-shrink: 0; /* 防止头部被压缩 */
-    margin-bottom: 0.75rem; /* 设置底部外边距 */
-}
-
-.mobile-version #task .visualization-main {
-    flex: 1; /* 占据剩余空间 */
-    min-height: 250px; /* 设置最小高度 */
-    max-height: none; /* 不限制最大高度 */
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-    overflow: hidden; /* 隐藏溢出内容 */
-    border-radius: 6px; /* 设置圆角 */
-    background-color: #0a0f1a; /* 设置背景色 */
-}
-
-.mobile-version #task .project-info {
-    flex-shrink: 0; /* 防止被压缩 */
-    margin-top: 0.75rem; /* 设置顶部外边距 */
-    font-size: 0.85rem; /* 调整字体大小 */
-}
+/* 任务标签页可视化区域特殊优化 - 已移至interface-styles.css */
 
 .container {
     display: flex; /* 使用flex布局 */
@@ -661,14 +507,14 @@ body {
 }
 
 .status-label {
-    font-size: 0.5rem; /* 设置状态标签字体大小 */
+    font-size: 0.7rem; /* 设置状态标签字体大小 */
     color: #8a96a8; /* 设置状态标签颜色 */
     text-transform: uppercase; /* 大写转换 */
     letter-spacing: 0.5px; /* 设置字间距 */
 }
 
 .status-value {
-    font-size: 0.8rem; /* 设置状态值字体大小 */
+    font-size: 0.6rem; /* 设置状态值字体大小 */
     font-weight: 600; /* 设置状态值字重 */
 }
 
@@ -968,7 +814,7 @@ body {
     gap: 1rem; /* 设置网格间距 */
     padding: 1rem; /* 设置内边距 */
     flex: 1; /* 占据剩余空间 */
-    overflow: auto; /* 显示溢出内容 */
+    overflow: visible; /* 显示溢出内容 */
     min-height: 0; /* 允许内容收缩 */
 }
 
@@ -2517,7 +2363,7 @@ body {
     background-color: rgba(76, 175, 80, 0.2);
     color: #4caf50;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 0.9rem;
 }
 
@@ -2923,4 +2769,5 @@ body {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-}
+}}}}
+}}}}
